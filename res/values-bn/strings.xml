@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="MAIN_MENU_ITEMS">
+        <item>পুলিশ স্টেশন</item>
+        <item>দমকল স্টেশন</item>
+        <item>হাসপাতাল</item>
+        <item>মানচিত্রে দেখুন</item>
+    </string-array>
+
+    <string name="police">পুলিশ</string>
+    <string name="fire_service">দমকল বাহিনী</string>
+    <string name="hospital">হাসপাতাল</string>
+    <string name="select_police_station">পুলিশ স্টেশন নিবর্াচন করুন</string>
+    <string name="making_phone_call">ফোন করা হচ্ছে</string>
+    <string name="call_to">ফোন করুন: </string>
+    <string name="yes">হ্যাঁ</string>
+    <string name="no">না</string>
+    <string name="telephone">টেলিফোন: </string>
+    <string name="mobile">মোবাইল: </string>
+    <string name="address_for_details_view">ঠিকানা: </string>
+    <string name="hospital_address_dummy_text">ঠিকানা: বাসা ৫, রোড ৭</string>
+    <string name="internet_connection_required">ইন্টারনেট সংযোগ প্রয়োজন।\nআপনার মোবাইলের ইন্টারনেট সংযোগ চালু করে আবার চেষ্টা করুন।</string>
+
+    <!-- Contribution Activity -->
+    <string name="whom_to_contribute_alert">কোন ক্ষেত্রে অবদান রাখতে চান, তা নির্বাচন করুন।</string>
+    <string name="please_select_type">কী ধরণের অবদান রাখতে চান, তা নির্বাচন করুন।</string>
+    <string name="please_write_some_related_text">সংশ্লিষ্ট বার্তা লিখুন</string>
+    <string name="forgot_add_location_dialog">আপনি কি অবস্থান যোগ করতে ভুলে গেছেন? আপনার অবদানের ধরণ পরিবর্তন করুন অথবা ম্যাপ থেকে অবস্থান যোগ করুন।</string>
+    <string name="congratulation_for_contribution">আপনার অবদান প্রেরণ করা হয়েছে। একটি সুন্দর বাংলাদেশ গড়তে অবদান রাখার জন্যে আপনাকে ধন্যবাদ। </string>
+    <string name="internet_connection_is_required">ইন্টারনেট সংযোগ প্রয়োজন।\nআপনার মোবাইলের ইন্টারনেট সংযোগ চালু করে আবার চেষ্টা করুন।</string>
+    <string name="click_to_chage_the_selected_location">নির্বাচিত অবস্থান পরিবর্তন করতে ক্লিক করুন।</string>
+   
+    <!-- complain Activity -->
+    <string name="please_write_your_complain_">আপনার অভিযোগ লিখুন।</string>
+    <string name="your_complain_has_been_submitted_">আপনার অভিযোগ প্রেরণ করা হয়েছে।</string>
+
+    <!-- settings Activity -->
+    <string name="please_select_your_district_first_">প্রথমে আপনার জেলা নির্বাচন করুন।</string>
+
+    <!-- splash Activity -->
+    <string name="please_set_your_preference_">আপনার পছন্দসমূহ নির্বাচন করুন।</string>
+
+</resources>

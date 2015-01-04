@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="user_guide">নির্দেশিকা</string>
+    <string name="user_guide_html_location">file:///android_asset/user_guide_bangla.html</string>
+
+</resources>

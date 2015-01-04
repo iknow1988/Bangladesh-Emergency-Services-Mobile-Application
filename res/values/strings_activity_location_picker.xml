@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="location_picker">Location Picker</string>
+    <string name="set_marker_instruction">Press and hold on a place to set the marker on that location.</string>
+    <string name="pick_this_location">Pick This Location</string>
+
+</resources>

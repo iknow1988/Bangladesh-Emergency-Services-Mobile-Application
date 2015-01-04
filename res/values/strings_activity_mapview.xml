@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="station_map">Station Map</string>
+    <string name="click_to_see_all_stations_list">Click to see all stations list</string>
+    <string name="sorry_cannot_find_any_nearby_service_station_">Sorry! Cannot find any nearby service station.</string>
+    <string name="around_">Around </string>
+    <string name="sorry_cannot_determine_your_location_please_search_manually_from_home_by_selecting_your_district">Sorry! Cannot determine your location. Please search manually from Home by selecting your district</string>
+    <string name="click_to_see_all_stations_list_in_">"Click to see all stations list in "</string>
+
+</resources>

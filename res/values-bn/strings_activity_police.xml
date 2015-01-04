@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="bangladesh_police">বাংলাদেশ পুলিশ</string>
+    <string name="select_unit">ইউনিট নির্বাচন করুন</string>
+    <string name="select_sub_unit">প্রথম সাব-ইউনিট নির্বাচন করুন</string>
+    <string name="select_sub_two_unit">দ্বিতীয় সাব-ইউনিট নির্বাচন করুন</string>
+
+</resources>

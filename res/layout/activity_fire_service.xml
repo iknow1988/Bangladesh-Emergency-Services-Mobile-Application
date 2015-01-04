@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    tools:context=".FireServiceActivity" >
+
+    <RelativeLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@id/actionBar"
+        android:background="@drawable/green_bg"
+        android:clickable="true"
+        android:focusable="true" >
+
+        <TextView
+            android:id="@+id/action_bar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@string/fire_service_and_civil_defence"
+            android:textColor="@color/light_green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/more_info"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_more_info" />
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/district_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/dark_green"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:layout_below="@id/actionBar" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dark_green_bg"
+            android:clickable="false"
+            android:focusable="false"
+            android:padding="5dp"
+            android:duplicateParentState="true" >
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:focusable="false" 
+                android:src="@drawable/ic_action_expand" />
+
+            <TextView
+                android:id="@+id/district_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:text="@string/select_district"
+                android:textColor="@drawable/light_green_text_color"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+    
+
+    <LinearLayout
+        android:id="@+id/quick_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/darker_green"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/contribute"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/green_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/contribute"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/submit_complaint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/green_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/submit_complaint"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/fire_stations_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/quick_bar"
+        android:layout_below="@id/district_selector"
+        android:visibility="gone"
+        android:layout_margin="5dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp" >
+    </ListView>
+    
+    <LinearLayout
+        android:id="@+id/district_listview_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_green"
+        android:orientation="vertical"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:visibility="gone"
+        android:paddingBottom="3dp"
+        android:layout_below="@id/district_selector"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp" >
+        
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"
+            android:orientation="horizontal"
+            android:visibility="gone" ></LinearLayout>
+         
+        <ExpandableListView
+            android:id="@+id/district_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:childDivider="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="1dp"
+            android:groupIndicator="@null"
+            android:transcriptMode="disabled" />
+
+    </LinearLayout>
+
+</RelativeLayout>

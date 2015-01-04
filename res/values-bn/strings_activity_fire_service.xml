@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fire_service_and_civil_defence">ফায়ার সার্ভিস এন্ড সিভিল ডিফেন্স</string>
+    <string name="select_district">জেলা নির্বাচন করুন</string>
+    <string name="contribute">অবদান</string>
+    <string name="submit_complaint">অভিযোগ</string>
+
+</resources>

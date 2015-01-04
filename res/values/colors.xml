@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="light_green">#D1FFD1</color>
+    <color name="dark_green">#008000</color>
+    <color name="darker_green">#006B00</color>
+    <color name="light_gray">#EDF4ED</color>
+    <color name="transparent_light_gray">#AAEDF4ED</color>
+    <color name="gray">#E8EAE8</color>
+    <color name="light_silver">#25949DA1</color>
+    <color name="dark_silver">#FF71767A</color>
+    <color name="police_path_color">#006B00</color>
+    <color name="fire_service_path_color">#41AC41</color>
+    <color name="hospital_path_color">#238E23</color>
+
+</resources>

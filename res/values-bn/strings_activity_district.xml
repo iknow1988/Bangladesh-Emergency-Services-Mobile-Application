@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dhaka">ঢাকা</string>
+    <string name="fire_stations">দমকল স্টেশন</string>
+    <string name="hospitals">হাসপাতালসমূহ</string>
+    <string name="police_stations">পুলিশ স্টেশন</string>
+
+</resources>

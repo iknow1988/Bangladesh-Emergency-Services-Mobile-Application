@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="select_a_district_to_search">Select a District to Search</string>
+    <string name="police_quick_call">Police Quick Call</string>
+    <string name="fire_control_room">Fire Control Room</string>
+    
+    <string name="call_fire_control_room" >Call Fire Control Room?</string>
+    <string name="select_nearest_police_station_in_settings">Please select nearest police station to your residence in settings.</string>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="complain_box">অভিযোগ বাক্স</string>
+    <string name="your_information">আপনার তথ্য (বাধ্যতামূলক নয়)</string>
+    <string name="name">নাম</string>
+    <string name="phone_mobile_number">টেলিফোন/মোবাইল নং</string>
+    <string name="address">ঠিকানা</string>
+    <string name="to">প্রতি</string>
+    <string name="text">বার্তা</string>
+    <string name="write_your_complain_here">এখানে আপনার অভিযোগ লিখুন</string>
+    <string name="submit">প্রেরণ করুন</string>
+
+</resources>

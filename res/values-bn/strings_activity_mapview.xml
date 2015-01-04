@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="station_map">স্টেশন মানচিত্র</string>
+    <string name="click_to_see_all_stations_list">সকল স্টেশনের তালিকা দেখতে ক্লিক করুন</string>
+    <string name="sorry_cannot_find_any_nearby_service_station_">দু:খিত, এই মুহূর্তে আপনার কাছাকাছি কোন সার্ভিস স্টেশন খুঁজে পাওয়া যাচ্ছে না।</string>
+    <string name="around_">যে জেলার কাছাকাছি আছেন: </string>
+    <string name="sorry_cannot_determine_your_location_please_search_manually_from_home_by_selecting_your_district">দু:খিত, আপনার বর্তমান অবস্থান নির্ণয় করা যাচ্ছে না। দয়া করে সরাসরি জেলা নির্বাচন করে আপনার প্রয়োজনীয় তথ্য খোঁজ করুন।</string>
+    <string name="click_to_see_all_stations_list_in_">"জেলার সকল স্টেশন দেখতে এখানে ক্লিক করুন:  "</string>
+
+</resources>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green" >
+    
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/green_bg"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <TextView
+            android:id="@+id/action_bar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:paddingBottom="0dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="50dp"
+            android:singleLine="true"
+            android:text="@string/station_map"
+            android:textColor="@color/light_green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/district_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/action_bar_text"
+            android:clickable="false"
+            android:focusable="false"
+            android:paddingLeft="8dp"
+            android:paddingRight="50dp"
+            android:singleLine="true"
+            android:text="@string/click_to_see_all_stations_list"
+            android:textColor="@color/light_green"
+            android:textSize="10sp"
+            android:visibility="gone" />
+        
+        <ProgressBar
+        android:id="@+id/progressBarMapLoading"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@color/light_green"
+        android:layout_below="@id/headerLayout" >
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/secondary_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent_light_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <LinearLayout
+            android:id="@+id/ic_police"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/quick_bar_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_p" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ic_fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/quick_bar_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_f" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ic_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/quick_bar_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_h" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ic_snapshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/quick_bar_item_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_camera" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/secondary_menu"
+        android:background="@color/gray"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+    </LinearLayout>
+
+    
+
+    
+
+</RelativeLayout>

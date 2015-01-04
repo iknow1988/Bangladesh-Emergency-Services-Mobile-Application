@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dhaka">Dhaka</string>
+    <string name="fire_stations">Fire Stations</string>
+    <string name="hospitals">Hospitals</string>
+    <string name="police_stations">Police Stations</string>
+
+</resources>

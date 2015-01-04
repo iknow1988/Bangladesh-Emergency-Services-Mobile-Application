@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="complain_box">Complain Box</string>
+    <string name="your_information">Your Information (optional)</string>
+    <string name="name">Name</string>
+    <string name="phone_mobile_number">Phone/Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="to">To</string>
+    <string name="text">Text</string>
+    <string name="write_your_complain_here">write your complain here</string>
+    <string name="submit">Submit</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="select_a_district_to_search">জেলা নির্বাচন করুন</string>
+    <string name="police_quick_call">পুলিশকে দ্রুত ফোন</string>
+    <string name="fire_control_room">দমকল বাহিনী</string>
+
+    <string name="call_fire_control_room" >ফায়ার কন্ট্রেল রুমে ফোন করতে চান?</string>
+    <string name="select_nearest_police_station_in_settings">দয়া করে সেটিংসে আপনার নিকটস্থ পুলিশ স্টেশন নিবর্াচন করুন।</string>
+    
+    
+    
+</resources>

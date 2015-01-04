@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="bangladesh_police">Bangladesh Police</string>
+    <string name="select_unit">Select Unit</string>
+    <string name="select_sub_unit">Select Sub Unit</string>
+    <string name="select_sub_two_unit">Select Sub Two Unit</string>
+
+</resources>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    android:orientation="vertical"
+    tools:context=".ContributionActivity" >
+
+    <RelativeLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_bg"
+        android:clickable="true"
+        android:focusable="true" >
+
+        <TextView
+            android:id="@+id/action_bar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@string/contribution"
+            android:textColor="@color/light_green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp" >
+
+            <LinearLayout
+                android:id="@+id/contributorInfoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="@string/your_information"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/contributorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="@string/name"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_green"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/contributorContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="@string/phone_mobile_number"
+                    android:inputType="phone"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_green"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/contributorAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="@string/address"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_green"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contributionToContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contributorInfoContainer"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="@string/to"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/contibutionTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <RadioButton
+                        android:id="@+id/toPolice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/police"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+
+                    <RadioButton
+                        android:id="@+id/toFireService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/fire_service"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+
+                    <RadioButton
+                        android:id="@+id/toHospital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/hospital"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contributionTypeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contributionToContainer"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="@string/type"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/contibutionType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" >
+
+                    <RadioButton
+                        android:id="@+id/sendLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/locaton_of_station"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+
+                    <RadioButton
+                        android:id="@+id/sendSuggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/suggestion"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+
+                    <RadioButton
+                        android:id="@+id/sendInformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radio_button_custom"
+                        android:text="@string/information"
+                        android:textColor="@color/dark_green"
+                        android:visibility="visible" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/messageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contributionTypeContainer"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="@string/text"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="@string/write_related_text_here"
+                    android:minLines="3"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_green"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/locationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/messageContainer"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="@string/add_location"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center_vertical"
+                    android:hint="@string/select_location_from_map"
+                    android:lines="2"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_green"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/locationContainer"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="15dp"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="10dp"
+                android:text="@string/submit"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

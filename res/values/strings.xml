@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="MAIN_MENU_ITEMS">
+        <item>Police Station</item>
+        <item>Fire Station</item>
+        <item>Nearest Hospital</item>
+        <item>View on Map</item>
+    </string-array>
+
+    <string name="police">Police</string>
+    <string name="fire_service">Fire Service</string>
+    <string name="hospital">Hospital</string>
+    <string name="select_police_station">Select Police Station</string>
+    <string name="making_phone_call">Making Phone Call</string>
+    <string name="call_to">Call to: </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="telephone">Telephone: </string>
+    <string name="mobile">Mobile: </string>
+    <string name="address_for_details_view">Address: </string>
+    <string name="app_name">Emergency Services</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_police">PoliceActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_fire_service">FireServiceActivity</string>
+    <string name="title_activity_district">DistrictActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="google_map_key_debug">"AIzaSyBxdbncxlfKTRtDKzy6F2r3_6h9R7p-9O0"</string>
+    <string name="google_map_key_release">""</string>
+
+    <!-- Contribution Activity -->
+    <string name="whom_to_contribute_alert">Please select an option to whom you want to contribute.</string>
+    <string name="please_select_type">Please select a type.</string>
+    <string name="please_write_some_related_text">Please write some related text.</string>
+    <string name="forgot_add_location_dialog">Have You forgot to add location? Please check the type and add location if necessary.</string>
+    <string name="congratulation_for_contribution">Your contribution has been submitted. Congratulation for taking part in building a better Bangladesh.</string>
+    <string name="internet_connection_is_required">INTERNET CONNECTION is required.\nPlease turn on internet connection of your device and try again.</string>
+    <string name="click_to_chage_the_selected_location">Click to chage the selected location</string>
+
+    <integer name="map_viewbound_padding_size">120</integer>
+    <!-- Map Start -->
+
+    <string name="share_pic_body">Shared from Mobile App: https://play.google.com/store/apps/details?id=</string>
+    <string name="title_activity_police_home">Bangladesh Police</string>
+    <string name="title_activity_fire_service_home">BANGLADESH FIRE SERVICE AND CIVIL DEFENCE</string>
+    <string name="title_activity_snapshot">SnapshotActivity</string>
+    <!-- Map End -->
+
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_contribution">ContributionActivity</string>
+    <string name="title_activity_complaint">ComplaintActivity</string>
+    <string name="title_activity_userguide">UserguideActivity</string>
+    <string name="title_activity_hospital">HospitalActivity</string>
+    <string name="submit_complain_url">http://bes.elitesbd.com/index.php/mobile_service/submit_complaint</string>
+    <string name="submit_gcm_url">http://bes.elitesbd.com/index.php</string>
+    <string name="check_push_notification_url">http://bes.elitesbd.com/index.php/mobile_service/get_broadcasted_messages</string>
+    <string name="submit_contribution_url">http://bes.elitesbd.com/index.php/mobile_service/submit_contribution</string>
+    <string name="hospital_address_dummy_text">Address: House 5, Road 7</string>
+    <string name="internet_connection_required">INTERNET CONNECTION is required.\nPlease turn on internet connection of your device and try again.</string>
+
+    <!-- complain Activity -->
+    <string name="please_write_your_complain_">Please write your complain.</string>
+    <string name="your_complain_has_been_submitted_">Your complain has been submitted.</string>
+
+    <!-- settings Activity -->
+    <string name="please_select_your_district_first_">Please select your district first.</string>
+    
+    <!-- splash Activity -->
+    <string name="please_set_your_preference_">Please set your preference.</string>
+
+</resources>

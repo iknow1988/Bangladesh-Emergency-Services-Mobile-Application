@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="station_name">স্টেশনের নাম</string>
+    <string name="click_to_view_in_map">ম্যাপে দেখতে ক্লিক করুন</string>
+    <string name="add_to_contact">ফোনবুকে যোগ করুন</string>
+    <string name="send_to_other">অন্যকে পাঠান</string>
+
+</resources>

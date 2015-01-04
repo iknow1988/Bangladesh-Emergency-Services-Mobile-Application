@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="station_name">Station Name</string>
+    <string name="click_to_view_in_map">Click to View in Map</string>
+    <string name="add_to_contact">Add to Contact</string>
+    <string name="send_to_other">Send to Other</string>
+
+</resources>
