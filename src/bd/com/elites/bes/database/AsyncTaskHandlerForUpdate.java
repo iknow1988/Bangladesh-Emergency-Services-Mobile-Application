@@ -67,7 +67,7 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 
 		Object returnObject = null;
 
-		returnObject = dataSource.get_districts();
+		returnObject = dataSource.encrypt();
 
 		return returnObject;
 	}
@@ -77,8 +77,8 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 
 		super.onPostExecute(result);
 
-		((HospitalActivity) callerActivity)
-				.onPostExecuteGetHospitals((ArrayList<HospitalModel>) result);
+		((DatabaseUpdateActivity) callerActivity)
+				.onPostExecuteGetHospitals(result);
 
 	}
 	

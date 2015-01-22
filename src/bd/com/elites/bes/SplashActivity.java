@@ -1,10 +1,12 @@
 package bd.com.elites.bes;
 
 import java.util.ArrayList;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -14,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 import bd.com.elites.bes.model.District;
 import bd.com.elites.bes.model.Division;
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.AsyncTaskHandler;
 import bd.com.elites.bes.utils.BaseActivity;
 import bd.com.elites.bes.utils.Constants;
@@ -35,11 +38,34 @@ public class SplashActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		startService(new Intent(this, GCMRegistrationService.class));
-		
+		String st = "this is a sample";
+		String lat = "90.866662";
+		Log.d("tonmoy", "before String : " + st + "lat : " + lat);
+
+		String rst = "";
+		String rlat = "";
+		try {
+			rst = AES.encryptIt(st);
+			rlat = AES.encryptIt(lat);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Log.d("tonmoy", "after String : " + rst + " lat : " + rlat);
+
+		try {
+			st = AES.decryptIt(rst);
+			lat = AES.decryptIt(rlat);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Log.d("tonmoy", "recov String : " + st + " lat : " + lat);
+
 		init();
 	}
 
-	
 	private void init() {
 
 		dialog = new TransparentProgressDialog(SplashActivity.this);
@@ -86,8 +112,7 @@ public class SplashActivity extends BaseActivity {
 		 * Constants.SHARED_PREFERENCE.PRESENT_THANA_NAME, "");
 		 */
 
-		if (pref.getString(Constants.SHARED_PREFERENCE.PRESENT_DISTRICT,
-						null) == null
+		if (pref.getString(Constants.SHARED_PREFERENCE.PRESENT_DISTRICT, null) == null
 				|| pref.getString(Constants.SHARED_PREFERENCE.PRESENT_THANA,
 						null) == null) {
 			return false;

@@ -16,6 +16,7 @@ import bd.com.elites.bes.model.PoliceSubTwoUnit;
 import bd.com.elites.bes.model.PoliceSubUnit;
 import bd.com.elites.bes.model.PoliceThana;
 import bd.com.elites.bes.model.PoliceUnit;
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
@@ -1035,7 +1036,7 @@ public class Datasource extends SQLiteAssetHelper {
 		return district;
 	}
 
-	public void encrypt() {
+	public boolean encrypt() {
 		String selectQuery = "SELECT  * FROM " + "hospitals";
 
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -1070,12 +1071,14 @@ public class Datasource extends SQLiteAssetHelper {
 						&& cursor.getString(columnIndex).length() > 0) {
 					longitude = cursor.getString(columnIndex);
 				}
-				updatedata(latitude, longitude, telephone_number,
-						mobile_number, "id=" + id);
+				AES.encryptIt(latitude);
+				updatedata(AES.encryptIt(latitude), AES.encryptIt(longitude), AES.encryptIt(telephone_number),
+						AES.encryptIt(mobile_number), "id=" + id);
 
 			} while (cursor.moveToNext());
 		}
 		db.close();
+		return true;
 	}
 
 	public void updatedata(String lat, String lon, String tele, String mobile,
