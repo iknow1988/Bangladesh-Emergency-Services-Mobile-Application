@@ -422,6 +422,13 @@ public class PoliceActivity extends BaseActivity implements OnClickListener {
 					Constants.ASYNCTASK_ACTIONS.GET_STATIONS_FROM_POLICE_BY_DISTRICT);
 			asyncTask.execute("" + present_district.id);
 		}
+		else {
+			asyncTask = new AsyncTaskHandler(
+					this,
+					Constants.ASYNCTASK_ACTIONS.GET_STATIONS_FROM_POLICE_BY_DISTRICT);
+			asyncTask.execute("" + 14);
+		}
+		
 	}
 
 	public void OnPreExecuteSetDafaultView() {

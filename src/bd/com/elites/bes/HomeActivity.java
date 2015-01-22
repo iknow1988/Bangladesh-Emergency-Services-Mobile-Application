@@ -1,7 +1,6 @@
 package bd.com.elites.bes;
 
 import java.util.ArrayList;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -159,8 +158,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 								// Build the alert dialog
 								AlertDialog.Builder builder = new AlertDialog.Builder(
 										HomeActivity.this);
-								builder.setTitle("Location Services Not Active");
-								builder.setMessage("Please enable Location Services and GPS");
+								builder.setTitle(R.string.location_services_not_active);
+								builder.setMessage(R.string.please_enable_location_services_and_gps);
 								builder.setPositiveButton("OK",
 										new DialogInterface.OnClickListener() {
 											public void onClick(

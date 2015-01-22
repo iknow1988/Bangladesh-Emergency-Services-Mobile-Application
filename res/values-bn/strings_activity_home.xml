@@ -8,6 +8,9 @@
     <string name="call_fire_control_room" >ফায়ার কন্ট্রেল রুমে ফোন করতে চান?</string>
     <string name="select_nearest_police_station_in_settings">দয়া করে সেটিংসে আপনার নিকটস্থ পুলিশ স্টেশন নিবর্াচন করুন।</string>
     
+    <string name="location_services_not_active">Location Services Not Active</string>
+    <string name="please_enable_location_services_and_gps">Please enable Location Services and GPS</string>
+    
     
     
 </resources>
