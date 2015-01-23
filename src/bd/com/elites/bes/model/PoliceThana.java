@@ -1,5 +1,6 @@
 package bd.com.elites.bes.model;
 
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 public class PoliceThana {
@@ -24,13 +25,13 @@ public class PoliceThana {
 
 		this.id = id;
 		this.thana_name = thana_name;
-		this.phone_number_1 = phone_number_1;
-		this.phone_number_2 = phone_number_2;
+		this.phone_number_1 = AES.decryptIt(phone_number_1);
+		this.phone_number_2 = AES.decryptIt(phone_number_2);
 		this.district = district;
 		this.second_level_region = second_level_region;
 		this.address = address;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.latitude = AES.decryptIt(latitude);
+		this.longitude = AES.decryptIt(longitude);
 	}
 
 	public PoliceThana(int id, String thana_name, String thana_name_bn,
@@ -42,16 +43,16 @@ public class PoliceThana {
 		this.id = id;
 		this.thana_name = thana_name;
 		this.thana_name_bn = thana_name_bn;
-		this.phone_number_1 = phone_number_1;
-		this.phone_number_2 = phone_number_2;
+		this.phone_number_1 = AES.decryptIt(phone_number_1);
+		this.phone_number_2 = AES.decryptIt(phone_number_2);
 		this.district = district;
 		this.district_bn = district_bn;
 		this.second_level_region = second_level_region;
 		this.second_level_region_bn = second_level_region_bn;
 		this.address = address;
 		this.address_bn = address_bn;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.latitude = AES.decryptIt(latitude);
+		this.longitude = AES.decryptIt(longitude);
 	}
 
 	public String getName(int language_preference) {

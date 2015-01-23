@@ -48,6 +48,8 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 	int actionName;
 	Datasource dataSource;
 	List<NameValuePair> nameValuePairs;
+	Long startTime;
+	Long endTime;
 
 	public AsyncTaskHandlerForUpdate(Activity caller, int action) {
 
@@ -59,6 +61,7 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
+		startTime = System.currentTimeMillis();
 
 	}
 
@@ -67,7 +70,9 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 
 		Object returnObject = null;
 
-		returnObject = dataSource.encrypt();
+		returnObject = dataSource.encryptHospitals();
+		returnObject = dataSource.encryptFireStation();
+		returnObject = dataSource.encryptPolice();
 
 		return returnObject;
 	}
@@ -76,12 +81,11 @@ public class AsyncTaskHandlerForUpdate extends AsyncTask<String, Void, Object> {
 	protected void onPostExecute(Object result) {
 
 		super.onPostExecute(result);
-
+		endTime = System.currentTimeMillis();
+		Log.d("tonmoy", "Total Time : " + (endTime - startTime) / 1000);
 		((DatabaseUpdateActivity) callerActivity)
 				.onPostExecuteGetHospitals(result);
 
 	}
-	
-	
 
 }

@@ -1036,7 +1036,7 @@ public class Datasource extends SQLiteAssetHelper {
 		return district;
 	}
 
-	public boolean encrypt() {
+	public boolean encryptHospitals() {
 		String selectQuery = "SELECT  * FROM " + "hospitals";
 
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -1072,7 +1072,9 @@ public class Datasource extends SQLiteAssetHelper {
 					longitude = cursor.getString(columnIndex);
 				}
 				AES.encryptIt(latitude);
-				updatedata(AES.encryptIt(latitude), AES.encryptIt(longitude), AES.encryptIt(telephone_number),
+				updateHospitalData(AES.encryptIt(latitude),
+						AES.encryptIt(longitude),
+						AES.encryptIt(telephone_number),
 						AES.encryptIt(mobile_number), "id=" + id);
 
 			} while (cursor.moveToNext());
@@ -1081,8 +1083,102 @@ public class Datasource extends SQLiteAssetHelper {
 		return true;
 	}
 
-	public void updatedata(String lat, String lon, String tele, String mobile,
-			String whereCondition) {
+	public boolean encryptPolice() {
+		String selectQuery = "SELECT  * FROM " + "police_thanas";
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			do {
+				String m_word = cursor.getString(0);
+				int id = cursor.getInt(cursor.getColumnIndex("id"));
+				int columnIndex = cursor.getColumnIndex("phone_number_1");
+				String telephone_number = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					telephone_number = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("phone_number_2");
+				String mobile_number = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					mobile_number = cursor.getString(columnIndex);
+				}
+				columnIndex = cursor.getColumnIndex("latitude");
+				String latitude = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					latitude = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("longitude");
+				String longitude = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					longitude = cursor.getString(columnIndex);
+				}
+				AES.encryptIt(latitude);
+				updatePoliceData(AES.encryptIt(latitude),
+						AES.encryptIt(longitude),
+						AES.encryptIt(telephone_number),
+						AES.encryptIt(mobile_number), "id=" + id);
+
+			} while (cursor.moveToNext());
+		}
+		db.close();
+		return true;
+	}
+
+	public boolean encryptFireStation() {
+		String selectQuery = "SELECT  * FROM " + "fireservice_stations";
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			do {
+				String m_word = cursor.getString(0);
+				int id = cursor.getInt(cursor.getColumnIndex("id"));
+				int columnIndex = cursor.getColumnIndex("telephone_number");
+				String telephone_number = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					telephone_number = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("mobile_number");
+				String mobile_number = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					mobile_number = cursor.getString(columnIndex);
+				}
+				columnIndex = cursor.getColumnIndex("latitude");
+				String latitude = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					latitude = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("longitude");
+				String longitude = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					longitude = cursor.getString(columnIndex);
+				}
+				AES.encryptIt(latitude);
+				updateFireServiceData(AES.encryptIt(latitude),
+						AES.encryptIt(longitude),
+						AES.encryptIt(telephone_number),
+						AES.encryptIt(mobile_number), "id=" + id);
+
+			} while (cursor.moveToNext());
+		}
+		db.close();
+		return true;
+	}
+
+	public void updateHospitalData(String lat, String lon, String tele,
+			String mobile, String whereCondition) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues newValues = new ContentValues();
@@ -1094,17 +1190,33 @@ public class Datasource extends SQLiteAssetHelper {
 		db.update("hospitals", newValues, whereCondition, null);
 		db.close();
 	}
-//	private byte[] decrypt(byte[] bytes) throws Exception {
-//	    Cipher cipher = Cipher.getInstance("RSA/None/NoPadding");
-//	    cipher.init(Cipher.DECRYPT_MODE, PRIVATE_KEY);
-//	    return cipher.doFinal(bytes);
-//	}
-//
-//	private byte[] encrypt(byte[] bytes) throws Exception {
-//	    Cipher cipher = Cipher.getInstance("RSA/None/NoPadding");
-//	    cipher.init(Cipher.ENCRYPT_MODE, SERVER_KEY);
-//	    return cipher.doFinal(bytes);
-//	}
 
+	public void updatePoliceData(String lat, String lon, String phone_number_1,
+			String phone_number_2, String whereCondition) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues newValues = new ContentValues();
+		newValues.put("phone_number_1", phone_number_1);
+		newValues.put("phone_number_2", phone_number_2);
+		newValues.put("latitude", lat);
+		newValues.put("longitude", lon);
+
+		db.update("police_thanas", newValues, whereCondition, null);
+		db.close();
+	}
+
+	public void updateFireServiceData(String lat, String lon, String tele,
+			String mobile, String whereCondition) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues newValues = new ContentValues();
+		newValues.put("telephone_number", tele);
+		newValues.put("mobile_number", mobile);
+		newValues.put("latitude", lat);
+		newValues.put("longitude", lon);
+
+		db.update("fireservice_stations", newValues, whereCondition, null);
+		db.close();
+	}
 
 }

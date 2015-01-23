@@ -49,6 +49,8 @@ public class AsyncTaskHandler extends AsyncTask<String, Void, Object> {
 	Datasource dataSource;
 	Service callerService;
 	List<NameValuePair> nameValuePairs;
+	Long startTime;
+	Long endTime;
 
 	public AsyncTaskHandler(Activity caller, int action) {
 
@@ -67,7 +69,7 @@ public class AsyncTaskHandler extends AsyncTask<String, Void, Object> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-
+		startTime = System.currentTimeMillis();
 		switch (this.actionName) {
 		case Constants.ASYNCTASK_ACTIONS.GET_DISTRICT_LIST:
 			((SplashActivity) callerActivity).onPreExecuteAsyncTask();
@@ -348,7 +350,8 @@ public class AsyncTaskHandler extends AsyncTask<String, Void, Object> {
 	protected void onPostExecute(Object result) {
 
 		super.onPostExecute(result);
-
+		endTime = System.currentTimeMillis();
+		Log.d("DB", "Total Time to Execute: " + (endTime - startTime)+" mili second");
 		switch (this.actionName) {
 		case Constants.ASYNCTASK_ACTIONS.GET_DISTRICT_LIST:
 			((SplashActivity) callerActivity)

@@ -1,5 +1,6 @@
 package bd.com.elites.bes.model;
 
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 public class FireserviceStation {
@@ -30,13 +31,13 @@ public class FireserviceStation {
 
 		this.id = id;
 		this.station_name = station_name;
-		this.telephone_number = telephone_number;
-		this.mobile_number = mobile_number;
+		this.telephone_number = AES.decryptIt(telephone_number);
+		this.mobile_number = AES.decryptIt(mobile_number);
 		this.district = district;
 		this.second_level_region = second_level_region;
 		this.address = address;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.latitude = AES.decryptIt(latitude);
+		this.longitude = AES.decryptIt(longitude);
 
 	}
 
@@ -49,16 +50,16 @@ public class FireserviceStation {
 		this.id = id;
 		this.station_name = station_name;
 		this.station_name_bn = station_name_bn;
-		this.telephone_number = telephone_number;
-		this.mobile_number = mobile_number;
+		this.telephone_number = AES.decryptIt(telephone_number);
+		this.mobile_number = AES.decryptIt(mobile_number);
 		this.district = district;
 		this.district_bn = district_bn;
 		this.second_level_region = second_level_region;
 		this.second_level_region_bn = second_level_region_bn;
 		this.address = address;
 		this.address_bn = address_bn;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.latitude = AES.decryptIt(latitude);
+		this.longitude = AES.decryptIt(longitude);
 
 	}
 	
