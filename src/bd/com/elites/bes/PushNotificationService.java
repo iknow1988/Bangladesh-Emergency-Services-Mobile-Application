@@ -16,13 +16,13 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.Toast;
 import bd.com.elites.bes.utils.AsyncTaskHandler;
 import bd.com.elites.bes.utils.Constants;
 import bd.com.elites.bes.utils.FetcherListener;
 import bd.com.elites.bes.utils.UtilityFunctions;
 
 public class PushNotificationService extends Service implements FetcherListener {
+	private static final int DELAY_MILLIS = 1000 * 60 * 5;// 5 min
 	private static final String MESSAGE_POLICE = "message_police";
 	private static final String MESSAGE_FIRE_SERVICE = "message_fire_service";
 	Handler handler;
@@ -84,13 +84,13 @@ public class PushNotificationService extends Service implements FetcherListener 
 				} catch (Exception e) {
 					// TODO: handle exception
 				} finally {
-					handler.postDelayed(this, 5000);
+					handler.postDelayed(this, DELAY_MILLIS);
 				}
 			}
 
 		};
 
-		handler.postDelayed(runable, 5000);
+		handler.postDelayed(runable, DELAY_MILLIS);
 
 	}
 
