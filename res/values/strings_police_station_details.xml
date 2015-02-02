@@ -2,7 +2,7 @@
 <resources>
 
     <string name="thana_name">Thana Name</string>
-    <string name="duty_office">Duty Officer: </string>
-    <string name="oc">OC: </string>
+    <string name="duty_office">Duty Officer : </string>
+    <string name="oc">OC : </string>
 
 </resources>

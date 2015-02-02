@@ -241,15 +241,18 @@ public class FireStationListAdapter extends ArrayAdapter<FireserviceStation>
 
 		((TextView) detailView.findViewById(R.id.telephone)).setText(context
 				.getResources().getString(R.string.telephone)
+				+ " "
 				+ fireStations.get(position).telephone_number);
 
 		((TextView) detailView.findViewById(R.id.mobile)).setText(context
 				.getResources().getString(R.string.mobile)
+				+ " "
 				+ fireStations.get(position).mobile_number);
 
 		((TextView) detailView.findViewById(R.id.stationAddress))
 				.setText(context.getResources().getString(
 						R.string.address_for_details_view)
+						+ " "
 						+ fireStations.get(position).getCombinedAddress(
 								language_preference));
 

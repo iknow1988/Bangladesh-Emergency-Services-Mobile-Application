@@ -32,7 +32,6 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 	private Context context;
 	private ArrayList<PoliceThana> policeThanas;
 	int language_preference = Constants.LANGUAGE.ENGLISH;
-	
 
 	public PoliceThanaListAdapter(Context context,
 			ArrayList<PoliceThana> policeThanas) {
@@ -40,7 +39,8 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 
 		this.context = context;
 		this.policeThanas = policeThanas;
-		language_preference = UtilityFunctions.getLanguageFromSharedPreference(this.context);
+		language_preference = UtilityFunctions
+				.getLanguageFromSharedPreference(this.context);
 	}
 
 	@Override
@@ -71,7 +71,8 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 		this.policeThanas.get(position).decrypt();
 		TextView txtTitle = (TextView) convertView
 				.findViewById(R.id.thana_name);
-		txtTitle.setText(this.policeThanas.get(position).getName(language_preference));
+		txtTitle.setText(this.policeThanas.get(position).getName(
+				language_preference));
 
 		convertView.findViewById(R.id.thana_header).setTag(
 				Integer.valueOf(position));
@@ -83,7 +84,8 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 			convertView.findViewById(R.id.call_duty_officer).setEnabled(false);
 		} else {
 			((TextView) convertView.findViewById(R.id.call_duty_officer))
-					.setText(context.getResources().getString(R.string.call_duty_officer));
+					.setText(context.getResources().getString(
+							R.string.call_duty_officer));
 			convertView.findViewById(R.id.call_duty_officer).setEnabled(true);
 			convertView.findViewById(R.id.call_duty_officer).setTag(
 					Integer.valueOf(position));
@@ -95,8 +97,8 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 			convertView.findViewById(R.id.call_oc).setEnabled(false);
 		} else {
 
-			((TextView) convertView.findViewById(R.id.call_oc))
-					.setText(context.getResources().getString(R.string.call_oc));
+			((TextView) convertView.findViewById(R.id.call_oc)).setText(context
+					.getResources().getString(R.string.call_oc));
 			convertView.findViewById(R.id.call_oc).setEnabled(true);
 			convertView.findViewById(R.id.call_oc).setTag(
 					Integer.valueOf(position));
@@ -144,17 +146,24 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 				R.layout.police_station_details, null);
 
 		((TextView) detailView.findViewById(R.id.thanaName))
-				.setText(policeThanas.get(position).getName(language_preference));
+				.setText(policeThanas.get(position)
+						.getName(language_preference));
 
-		((TextView) detailView.findViewById(R.id.dutyOfficer))
-				.setText(context.getResources().getString(R.string.duty_office)
-						+ policeThanas.get(position).phone_number_2);
+		((TextView) detailView.findViewById(R.id.dutyOfficer)).setText(context
+				.getResources().getString(R.string.duty_office)
+				+ " "
+				+ policeThanas.get(position).phone_number_2);
 
-		((TextView) detailView.findViewById(R.id.oc)).setText(context.getResources().getString(R.string.oc)
+		((TextView) detailView.findViewById(R.id.oc)).setText(context
+				.getResources().getString(R.string.oc)
+				+ " "
 				+ policeThanas.get(position).phone_number_1);
 
-		((TextView) detailView.findViewById(R.id.thanaAddress))
-				.setText(context.getResources().getString(R.string.address_for_details_view) + policeThanas.get(position).getCombinedAddress(language_preference));
+		((TextView) detailView.findViewById(R.id.thanaAddress)).setText(context
+				.getResources().getString(R.string.address_for_details_view)
+				+ " "
+				+ policeThanas.get(position).getCombinedAddress(
+						language_preference));
 
 		String lat = policeThanas.get(position).latitude;
 		String lon = policeThanas.get(position).longitude;
@@ -256,11 +265,15 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 
 		AlertDialog.Builder dialogBuilder = new Builder(context);
 		dialogBuilder
-				.setTitle(context.getResources().getString(R.string.making_phone_call))
+				.setTitle(
+						context.getResources().getString(
+								R.string.making_phone_call))
 				.setMessage(
 						context.getResources().getString(R.string.call_to)
-								+ policeThanas.get(position).getName(language_preference) + "?")
-				.setPositiveButton(context.getResources().getString(R.string.yes),
+								+ policeThanas.get(position).getName(
+										language_preference) + "?")
+				.setPositiveButton(
+						context.getResources().getString(R.string.yes),
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -276,24 +289,31 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 
 							}
 						})
-				.setNegativeButton(context.getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+				.setNegativeButton(
+						context.getResources().getString(R.string.no),
+						new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						}).show();
 	}
 
 	private void callOc(final int position) {
 
 		AlertDialog.Builder dialogBuilder = new Builder(context);
 		dialogBuilder
-				.setTitle(context.getResources().getString(R.string.making_phone_call))
+				.setTitle(
+						context.getResources().getString(
+								R.string.making_phone_call))
 				.setMessage(
-						context.getResources().getString(R.string.call_to) + policeThanas.get(position).getName(language_preference)
-								+ "?")
-				.setPositiveButton(context.getResources().getString(R.string.yes),
+						context.getResources().getString(R.string.call_to)
+								+ policeThanas.get(position).getName(
+										language_preference) + "?")
+				.setPositiveButton(
+						context.getResources().getString(R.string.yes),
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -309,13 +329,16 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 
 							}
 						})
-				.setNegativeButton(context.getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+				.setNegativeButton(
+						context.getResources().getString(R.string.no),
+						new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						}).show();
 
 	}
 }

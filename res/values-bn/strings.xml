@@ -16,9 +16,9 @@
     <string name="call_to">ফোন করুন: </string>
     <string name="yes">হ্যাঁ</string>
     <string name="no">না</string>
-    <string name="telephone">টেলিফোন: </string>
-    <string name="mobile">মোবাইল: </string>
-    <string name="address_for_details_view">ঠিকানা: </string>
+    <string name="telephone">টেলিফোন : </string>
+    <string name="mobile">মোবাইল : </string>
+    <string name="address_for_details_view">ঠিকানা : </string>
     <string name="hospital_address_dummy_text">ঠিকানা: বাসা ৫, রোড ৭</string>
     <string name="internet_connection_required">ইন্টারনেট সংযোগ প্রয়োজন।\nআপনার মোবাইলের ইন্টারনেট সংযোগ চালু করে আবার চেষ্টা করুন।</string>
 

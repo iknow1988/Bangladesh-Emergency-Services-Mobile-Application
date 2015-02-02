@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import bd.com.elites.bes.map.StationInfoForMap;
 import bd.com.elites.bes.model.District;
 import bd.com.elites.bes.model.FireserviceStation;
@@ -354,7 +355,7 @@ public class Datasource extends SQLiteAssetHelper {
 		return policeStations;
 
 	}
-
+// performance improvement
 	public ArrayList<PoliceThana> get_police_stations_by_district(
 			String district_id) {
 
@@ -385,13 +386,15 @@ public class Datasource extends SQLiteAssetHelper {
 		query += " ORDER BY `police_thanas`.`thana_name_en` asc ";
 
 		Cursor cursor = db.rawQuery(query, null);
+		Log.d("tonmoy", query);
+		
 
 		if (cursor != null && cursor.getCount() > 0) {
-
+			Log.d("tonmoy", "Size : "+cursor.getCount());
 			while (cursor.moveToNext()) {
-
+				
 				int id = cursor.getInt(cursor.getColumnIndex("id"));
-
+				Log.d("tonmoy", "Id : "+id);
 				int columnIndex = cursor.getColumnIndex("thana_name");
 				String thana_name = "";
 				if (!cursor.isNull(columnIndex)
@@ -481,6 +484,66 @@ public class Datasource extends SQLiteAssetHelper {
 						district, district_bn, second_level_region,
 						second_level_region_bn, address, address_bn, latitude,
 						longitude));
+			}
+
+		}
+		cursor.close();
+		db.close();
+
+		return policeStations;
+
+	}
+	
+	public ArrayList<PoliceThana> get_police_stations_name_by_district(
+			String district_id) {
+
+		ArrayList<PoliceThana> policeStations = new ArrayList<PoliceThana>();
+		SQLiteDatabase db = getReadableDatabase();
+
+		String query = "select id,thana_name_en,thana_name_bn,phone_number_1,phone_number_2 from police_thanas where  district = "+district_id;
+
+		Cursor cursor = db.rawQuery(query, null);
+		Log.d("tonmoy", query);
+		
+
+		if (cursor != null && cursor.getCount() > 0) {
+			Log.d("tonmoy", "Size : "+cursor.getCount());
+			while (cursor.moveToNext()) {
+				
+				int id = cursor.getInt(cursor.getColumnIndex("id"));
+				Log.d("tonmoy", "Id : "+id);
+				int columnIndex = cursor.getColumnIndex("thana_name_en");
+				String thana_name = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					thana_name = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("thana_name_bn");
+				String thana_name_bn = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					thana_name_bn = cursor.getString(columnIndex);
+				}
+				columnIndex = cursor.getColumnIndex("phone_number_1");
+				String phone_number_1 = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					phone_number_1 = cursor.getString(columnIndex);
+				}
+
+				columnIndex = cursor.getColumnIndex("phone_number_2");
+				String phone_number_2 = "";
+				if (!cursor.isNull(columnIndex)
+						&& cursor.getString(columnIndex).length() > 0) {
+					phone_number_2 = cursor.getString(columnIndex);
+				}
+
+				policeStations.add(new PoliceThana(id, thana_name,
+						thana_name_bn, phone_number_1, phone_number_2,
+						"", "", "",
+						"", "", "", "",
+						""));
 			}
 
 		}

@@ -234,15 +234,18 @@ public class HospitalListAdapter extends ArrayAdapter<HospitalModel> implements
 
 		((TextView) detailView.findViewById(R.id.telephone)).setText(context
 				.getResources().getString(R.string.telephone)
+				+ " "
 				+ hospitals.get(position).telephone_number);
 
 		((TextView) detailView.findViewById(R.id.mobile)).setText(context
 				.getResources().getString(R.string.mobile)
+				+ " "
 				+ hospitals.get(position).mobile_number);
 
 		((TextView) detailView.findViewById(R.id.stationAddress))
 				.setText(context.getResources().getString(
 						R.string.address_for_details_view)
+						+ " "
 						+ hospitals.get(position).getCombinedAddress(
 								language_preference));
 

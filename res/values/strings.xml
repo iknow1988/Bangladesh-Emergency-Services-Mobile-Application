@@ -16,9 +16,9 @@
     <string name="call_to">Call to: </string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="telephone">Telephone: </string>
-    <string name="mobile">Mobile: </string>
-    <string name="address_for_details_view">Address: </string>
+    <string name="telephone">Telephone : </string>
+    <string name="mobile">Mobile : </string>
+    <string name="address_for_details_view">Address : </string>
     <string name="app_name">Emergency Services</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_police">PoliceActivity</string>

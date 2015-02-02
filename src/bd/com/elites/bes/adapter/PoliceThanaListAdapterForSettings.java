@@ -37,13 +37,11 @@ public class PoliceThanaListAdapterForSettings extends
 
 	@Override
 	public PoliceThana getItem(int position) {
-		this.policeThanas.get(position).decrypt();
 		return this.policeThanas.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		this.policeThanas.get(position).decrypt();
 		return this.policeThanas.get(position).id;
 	}
 
@@ -55,7 +53,6 @@ public class PoliceThanaListAdapterForSettings extends
 			convertView = inflater.inflate(
 					R.layout.thana_list_item_for_settings, null);
 		}
-		this.policeThanas.get(position).decrypt();
 		TextView txtTitle = (TextView) convertView
 				.findViewById(R.id.thana_name);
 		txtTitle.setText(this.policeThanas.get(position).getName(

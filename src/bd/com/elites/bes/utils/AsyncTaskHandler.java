@@ -253,7 +253,7 @@ public class AsyncTaskHandler extends AsyncTask<String, Void, Object> {
 
 		case Constants.ASYNCTASK_ACTIONS.GET_THANA_LIST_FROM_SETTINGS:
 			returnObject = dataSource
-					.get_police_stations_by_district(strings[0]);
+					.get_police_stations_name_by_district(strings[0]);
 			break;
 		case Constants.ASYNCTASK_ACTIONS.GET_GCM_REG_ID:
 			returnObject = "";
