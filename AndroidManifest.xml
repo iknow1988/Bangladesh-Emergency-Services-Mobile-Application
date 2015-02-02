@@ -82,12 +82,12 @@
             android:theme="@android:style/Theme.Black.NoTitleBar" >
 
             
-            <intent-filter>
+           <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-           
+            -->
         </activity>
         <activity
             android:name="bd.com.elites.bes.map.MapViewActivity"
@@ -148,11 +148,11 @@
             android:label="@string/title_activity_hospital"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-            <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
+            </intent-filter>
         </activity>
 
         <service android:name="bd.com.elites.bes.GCMRegistrationService" />

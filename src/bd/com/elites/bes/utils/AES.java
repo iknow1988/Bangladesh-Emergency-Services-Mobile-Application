@@ -28,7 +28,7 @@ import com.sun.mail.util.BASE64EncoderStream;
 //free to use this in any way
 
 public class AES {
-	private static String cryptoPass = "sup3rS3xy";
+	private static String cryptoPass = "sup3rS3xyeLITEs";
 	private static Cipher ecipher;
 	private static Cipher dcipher;
 
