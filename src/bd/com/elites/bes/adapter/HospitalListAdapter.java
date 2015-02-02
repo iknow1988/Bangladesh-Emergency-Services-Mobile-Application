@@ -51,11 +51,13 @@ public class HospitalListAdapter extends ArrayAdapter<HospitalModel> implements
 
 	@Override
 	public HospitalModel getItem(int position) {
+		this.hospitals.get(position).decrypt();
 		return this.hospitals.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
+		this.hospitals.get(position).decrypt();
 		return this.hospitals.get(position).id;
 	}
 
@@ -66,7 +68,7 @@ public class HospitalListAdapter extends ArrayAdapter<HospitalModel> implements
 					.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.hospital_list_item, null);
 		}
-
+		this.hospitals.get(position).decrypt();
 		TextView txtTitle = (TextView) convertView
 				.findViewById(R.id.station_name);
 		txtTitle.setText(this.hospitals.get(position).getStationName(

@@ -1,5 +1,6 @@
 package bd.com.elites.bes.model;
 
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 public class FireserviceStation {
@@ -22,6 +23,7 @@ public class FireserviceStation {
 
 	public String latitude = "";
 	public String longitude = "";
+	private boolean isEncrypted = true;
 
 	public FireserviceStation(int id, String station_name,
 			String telephone_number, String mobile_number, String district,
@@ -61,7 +63,7 @@ public class FireserviceStation {
 		this.longitude = longitude;
 
 	}
-	
+
 	public String getStationName(int language_preference) {
 
 		switch (language_preference) {
@@ -76,7 +78,7 @@ public class FireserviceStation {
 		}
 
 	}
-	
+
 	public String getDistrictName(int language_preference) {
 
 		switch (language_preference) {
@@ -91,7 +93,7 @@ public class FireserviceStation {
 		}
 
 	}
-	
+
 	public String getSecondLevelRegionName(int language_preference) {
 
 		switch (language_preference) {
@@ -106,7 +108,7 @@ public class FireserviceStation {
 		}
 
 	}
-	
+
 	public String getAddress(int language_preference) {
 
 		switch (language_preference) {
@@ -121,7 +123,7 @@ public class FireserviceStation {
 		}
 
 	}
-	
+
 	public String getCombinedAddress(int language_preference) {
 		String combinedAddress = getAddress(language_preference).trim();
 		if (combinedAddress.length() == 0) {
@@ -132,6 +134,16 @@ public class FireserviceStation {
 		}
 		return combinedAddress;
 
+	}
+
+	public void decrypt() {
+		if (isEncrypted) {
+			this.latitude = AES.decryptIt(latitude);
+			this.longitude = AES.decryptIt(longitude);
+			this.telephone_number = AES.decryptIt(telephone_number);
+			this.mobile_number = AES.decryptIt(mobile_number);
+			isEncrypted = false;
+		}
 	}
 
 }

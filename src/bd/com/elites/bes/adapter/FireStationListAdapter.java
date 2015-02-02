@@ -57,11 +57,13 @@ public class FireStationListAdapter extends ArrayAdapter<FireserviceStation>
 
 	@Override
 	public FireserviceStation getItem(int position) {
+		this.fireStations.get(position).decrypt();
 		return this.fireStations.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
+		this.fireStations.get(position).decrypt();
 		return this.fireStations.get(position).id;
 	}
 
@@ -73,7 +75,7 @@ public class FireStationListAdapter extends ArrayAdapter<FireserviceStation>
 			convertView = inflater.inflate(R.layout.fire_stations_list_item,
 					null);
 		}
-
+		this.fireStations.get(position).decrypt();
 		TextView txtTitle = (TextView) convertView
 				.findViewById(R.id.station_name);
 		txtTitle.setText(this.fireStations.get(position).getStationName(

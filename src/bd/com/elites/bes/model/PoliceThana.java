@@ -1,5 +1,6 @@
 package bd.com.elites.bes.model;
 
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 public class PoliceThana {
@@ -17,7 +18,7 @@ public class PoliceThana {
 	public String address_bn = "";
 	public String latitude = "";
 	public String longitude = "";
-
+	private boolean isEncrypted = true;
 	public PoliceThana(int id, String thana_name, String phone_number_1,
 			String phone_number_2, String district, String second_level_region,
 			String address, String latitude, String longitude) {
@@ -136,5 +137,15 @@ public class PoliceThana {
 		}
 		return combinedAddress;
 
+	}
+	
+	public void decrypt() {
+		if (isEncrypted) {
+			this.latitude = AES.decryptIt(latitude);
+			this.longitude = AES.decryptIt(longitude);
+			this.phone_number_1 = AES.decryptIt(phone_number_1);
+			this.phone_number_2 = AES.decryptIt(phone_number_2);
+			isEncrypted = false;
+		}
 	}
 }
