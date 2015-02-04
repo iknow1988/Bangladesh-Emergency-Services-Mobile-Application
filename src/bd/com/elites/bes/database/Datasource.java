@@ -16,6 +16,7 @@ import bd.com.elites.bes.model.PoliceThana;
 import bd.com.elites.bes.model.PoliceUnit;
 import bd.com.elites.bes.utils.Constants;
 
+import com.google.android.gms.internal.el;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class Datasource extends SQLiteAssetHelper {
@@ -355,9 +356,9 @@ public class Datasource extends SQLiteAssetHelper {
 		return policeStations;
 
 	}
-// performance improvement
+
 	public ArrayList<PoliceThana> get_police_stations_by_district(
-			String district_id) {
+			String district_id, String defaultDistrict) {
 
 		ArrayList<PoliceThana> policeStations = new ArrayList<PoliceThana>();
 		SQLiteDatabase db = getReadableDatabase();
@@ -387,14 +388,13 @@ public class Datasource extends SQLiteAssetHelper {
 
 		Cursor cursor = db.rawQuery(query, null);
 		Log.d("tonmoy", query);
-		
 
 		if (cursor != null && cursor.getCount() > 0) {
-			Log.d("tonmoy", "Size : "+cursor.getCount());
+			Log.d("tonmoy", "Size : " + cursor.getCount());
 			while (cursor.moveToNext()) {
-				
+
 				int id = cursor.getInt(cursor.getColumnIndex("id"));
-				Log.d("tonmoy", "Id : "+id);
+				Log.d("tonmoy", "Id : " + id);
 				int columnIndex = cursor.getColumnIndex("thana_name");
 				String thana_name = "";
 				if (!cursor.isNull(columnIndex)
@@ -479,11 +479,22 @@ public class Datasource extends SQLiteAssetHelper {
 					district_bn = cursor.getString(columnIndex);
 				}
 
-				policeStations.add(new PoliceThana(id, thana_name,
-						thana_name_bn, phone_number_1, phone_number_2,
-						district, district_bn, second_level_region,
-						second_level_region_bn, address, address_bn, latitude,
-						longitude));
+				if (thana_name.length() > 0
+						&& thana_name.equals(defaultDistrict)) {
+					// add at beginning
+					policeStations.add(0, new PoliceThana(id, thana_name,
+							thana_name_bn, phone_number_1, phone_number_2,
+							district, district_bn, second_level_region,
+							second_level_region_bn, address, address_bn,
+							latitude, longitude));
+				} else {
+					policeStations.add(new PoliceThana(id, thana_name,
+							thana_name_bn, phone_number_1, phone_number_2,
+							district, district_bn, second_level_region,
+							second_level_region_bn, address, address_bn,
+							latitude, longitude));
+				}
+
 			}
 
 		}
@@ -493,66 +504,64 @@ public class Datasource extends SQLiteAssetHelper {
 		return policeStations;
 
 	}
-	
-	public ArrayList<PoliceThana> get_police_stations_name_by_district(
-			String district_id) {
 
-		ArrayList<PoliceThana> policeStations = new ArrayList<PoliceThana>();
-		SQLiteDatabase db = getReadableDatabase();
-
-		String query = "select id,thana_name_en,thana_name_bn,phone_number_1,phone_number_2 from police_thanas where  district = "+district_id;
-
-		Cursor cursor = db.rawQuery(query, null);
-		Log.d("tonmoy", query);
-		
-
-		if (cursor != null && cursor.getCount() > 0) {
-			Log.d("tonmoy", "Size : "+cursor.getCount());
-			while (cursor.moveToNext()) {
-				
-				int id = cursor.getInt(cursor.getColumnIndex("id"));
-				Log.d("tonmoy", "Id : "+id);
-				int columnIndex = cursor.getColumnIndex("thana_name_en");
-				String thana_name = "";
-				if (!cursor.isNull(columnIndex)
-						&& cursor.getString(columnIndex).length() > 0) {
-					thana_name = cursor.getString(columnIndex);
-				}
-
-				columnIndex = cursor.getColumnIndex("thana_name_bn");
-				String thana_name_bn = "";
-				if (!cursor.isNull(columnIndex)
-						&& cursor.getString(columnIndex).length() > 0) {
-					thana_name_bn = cursor.getString(columnIndex);
-				}
-				columnIndex = cursor.getColumnIndex("phone_number_1");
-				String phone_number_1 = "";
-				if (!cursor.isNull(columnIndex)
-						&& cursor.getString(columnIndex).length() > 0) {
-					phone_number_1 = cursor.getString(columnIndex);
-				}
-
-				columnIndex = cursor.getColumnIndex("phone_number_2");
-				String phone_number_2 = "";
-				if (!cursor.isNull(columnIndex)
-						&& cursor.getString(columnIndex).length() > 0) {
-					phone_number_2 = cursor.getString(columnIndex);
-				}
-
-				policeStations.add(new PoliceThana(id, thana_name,
-						thana_name_bn, phone_number_1, phone_number_2,
-						"", "", "",
-						"", "", "", "",
-						""));
-			}
-
-		}
-		cursor.close();
-		db.close();
-
-		return policeStations;
-
-	}
+//	public ArrayList<PoliceThana> get_police_stations_name_by_district(
+//			String district_id) {
+//
+//		ArrayList<PoliceThana> policeStations = new ArrayList<PoliceThana>();
+//		SQLiteDatabase db = getReadableDatabase();
+//
+//		String query = "select id,thana_name_en,thana_name_bn,phone_number_1,phone_number_2 from police_thanas where  district = "
+//				+ district_id;
+//
+//		Cursor cursor = db.rawQuery(query, null);
+//		Log.d("tonmoy", query);
+//
+//		if (cursor != null && cursor.getCount() > 0) {
+//			Log.d("tonmoy", "Size : " + cursor.getCount());
+//			while (cursor.moveToNext()) {
+//
+//				int id = cursor.getInt(cursor.getColumnIndex("id"));
+//				Log.d("tonmoy", "Id : " + id);
+//				int columnIndex = cursor.getColumnIndex("thana_name_en");
+//				String thana_name = "";
+//				if (!cursor.isNull(columnIndex)
+//						&& cursor.getString(columnIndex).length() > 0) {
+//					thana_name = cursor.getString(columnIndex);
+//				}
+//
+//				columnIndex = cursor.getColumnIndex("thana_name_bn");
+//				String thana_name_bn = "";
+//				if (!cursor.isNull(columnIndex)
+//						&& cursor.getString(columnIndex).length() > 0) {
+//					thana_name_bn = cursor.getString(columnIndex);
+//				}
+//				columnIndex = cursor.getColumnIndex("phone_number_1");
+//				String phone_number_1 = "";
+//				if (!cursor.isNull(columnIndex)
+//						&& cursor.getString(columnIndex).length() > 0) {
+//					phone_number_1 = cursor.getString(columnIndex);
+//				}
+//
+//				columnIndex = cursor.getColumnIndex("phone_number_2");
+//				String phone_number_2 = "";
+//				if (!cursor.isNull(columnIndex)
+//						&& cursor.getString(columnIndex).length() > 0) {
+//					phone_number_2 = cursor.getString(columnIndex);
+//				}
+//
+//				policeStations.add(new PoliceThana(id, thana_name,
+//						thana_name_bn, phone_number_1, phone_number_2, "", "",
+//						"", "", "", "", "", ""));
+//			}
+//
+//		}
+//		cursor.close();
+//		db.close();
+//
+//		return policeStations;
+//
+//	}
 
 	public ArrayList<FireserviceStation> get_fire_stations(String district_id) {
 
@@ -686,9 +695,8 @@ public class Datasource extends SQLiteAssetHelper {
 		return fireStations;
 
 	}
-	
-	
-	public ArrayList<HospitalModel> get_hospitals(String district_id){
+
+	public ArrayList<HospitalModel> get_hospitals(String district_id) {
 
 		ArrayList<HospitalModel> hospitals = new ArrayList<HospitalModel>();
 		SQLiteDatabase db = getReadableDatabase();
@@ -821,118 +829,118 @@ public class Datasource extends SQLiteAssetHelper {
 
 	}
 
-//	public ArrayList<Hospital> get_hospitals(String district_id) {
-//
-//		ArrayList<Hospital> hospitals = new ArrayList<Hospital>();
-//		SQLiteDatabase db = getReadableDatabase();
-//
-//		String query = "SELECT ";
-//		query += " `hospitals`.`id` as `id`, ";
-//		query += " `hospitals`.`hospital_name_en` as `hospital_name`, ";
-//		query += " `hospitals`.`hospital_name_bn` as `hospital_name_bn`, ";
-//		query += " `hospitals`.`telephone_number` as `telephone`,";
-//		query += " `hospitals`.`mobile_number` as `mobile`, ";
-//		query += " `hospitals`.`address_en` as `address`, ";
-//		query += " `hospitals`.`address_bn` as `address_bn`, ";
-//		query += " `hospitals`.`latitude` as `latitude`, ";
-//		query += " `hospitals`.`longitude` as `longitude`, ";
-//		// query +=
-//		// " `second_level_region`.`region_name_en` as `second_level_region`, ";
-//		query += " `district`.`district_name_en` as `district` ";
-//		// query +=
-//		// " FROM (`hospitals`, `second_level_region`, `district`) ";
-//		query += " FROM (`hospitals`, `district`) ";
-//		query += " WHERE ";
-//		query += " `hospitals`.`district` = '" + district_id + "' ";
-//		// query +=
-//		// " AND `hospitals`.`second_level_region` = second_level_region.id ";
-//		query += " AND `hospitals`.`district` = district.id ";
-//		query += " ORDER BY `hospitals`.`hospital_name_en` asc";
-//		Log.d("tonmoy", query);
-//
-//		Cursor cursor = db.rawQuery(query, null);
-//
-//		if (cursor != null && cursor.getCount() > 0) {
-//			Log.d("tonmoy", "Count : " + cursor.getCount());
-//			while (cursor.moveToNext()) {
-//
-//				int id = cursor.getInt(cursor.getColumnIndex("id"));
-//
-//				int columnIndex = cursor.getColumnIndex("hospital_name");
-//				String station_name = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					station_name = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("hospital_name_bn");
-//				String station_name_bn = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					station_name_bn = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("telephone");
-//				String telephone_number = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					telephone_number = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("mobile");
-//				String mobile_number = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					mobile_number = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("address");
-//				String address = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					address = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("latitude");
-//				String latitude = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					latitude = cursor.getString(columnIndex);
-//				}
-//
-//				columnIndex = cursor.getColumnIndex("longitude");
-//				String longitude = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					longitude = cursor.getString(columnIndex);
-//				}
-//
-//				// columnIndex = cursor.getColumnIndex("second_level_region");
-//				// String second_level_region = "";
-//				// if (!cursor.isNull(columnIndex)
-//				// && cursor.getString(columnIndex).length() > 0) {
-//				// second_level_region = cursor.getString(columnIndex);
-//				// }
-//
-//				columnIndex = cursor.getColumnIndex("district");
-//				String district = "";
-//				if (!cursor.isNull(columnIndex)
-//						&& cursor.getString(columnIndex).length() > 0) {
-//					district = cursor.getString(columnIndex);
-//				}
-//
-//				hospitals.add(new Hospital(id, station_name, station_name_bn,
-//						telephone_number, mobile_number, district, latitude,
-//						longitude, address));
-//			}
-//
-//		}
-//		cursor.close();
-//		db.close();
-//		Log.d("tonmoy", "list size is : " + hospitals.size());
-//		return hospitals;
-//
-//	}
+	// public ArrayList<Hospital> get_hospitals(String district_id) {
+	//
+	// ArrayList<Hospital> hospitals = new ArrayList<Hospital>();
+	// SQLiteDatabase db = getReadableDatabase();
+	//
+	// String query = "SELECT ";
+	// query += " `hospitals`.`id` as `id`, ";
+	// query += " `hospitals`.`hospital_name_en` as `hospital_name`, ";
+	// query += " `hospitals`.`hospital_name_bn` as `hospital_name_bn`, ";
+	// query += " `hospitals`.`telephone_number` as `telephone`,";
+	// query += " `hospitals`.`mobile_number` as `mobile`, ";
+	// query += " `hospitals`.`address_en` as `address`, ";
+	// query += " `hospitals`.`address_bn` as `address_bn`, ";
+	// query += " `hospitals`.`latitude` as `latitude`, ";
+	// query += " `hospitals`.`longitude` as `longitude`, ";
+	// // query +=
+	// // " `second_level_region`.`region_name_en` as `second_level_region`, ";
+	// query += " `district`.`district_name_en` as `district` ";
+	// // query +=
+	// // " FROM (`hospitals`, `second_level_region`, `district`) ";
+	// query += " FROM (`hospitals`, `district`) ";
+	// query += " WHERE ";
+	// query += " `hospitals`.`district` = '" + district_id + "' ";
+	// // query +=
+	// // " AND `hospitals`.`second_level_region` = second_level_region.id ";
+	// query += " AND `hospitals`.`district` = district.id ";
+	// query += " ORDER BY `hospitals`.`hospital_name_en` asc";
+	// Log.d("tonmoy", query);
+	//
+	// Cursor cursor = db.rawQuery(query, null);
+	//
+	// if (cursor != null && cursor.getCount() > 0) {
+	// Log.d("tonmoy", "Count : " + cursor.getCount());
+	// while (cursor.moveToNext()) {
+	//
+	// int id = cursor.getInt(cursor.getColumnIndex("id"));
+	//
+	// int columnIndex = cursor.getColumnIndex("hospital_name");
+	// String station_name = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// station_name = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("hospital_name_bn");
+	// String station_name_bn = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// station_name_bn = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("telephone");
+	// String telephone_number = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// telephone_number = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("mobile");
+	// String mobile_number = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// mobile_number = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("address");
+	// String address = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// address = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("latitude");
+	// String latitude = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// latitude = cursor.getString(columnIndex);
+	// }
+	//
+	// columnIndex = cursor.getColumnIndex("longitude");
+	// String longitude = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// longitude = cursor.getString(columnIndex);
+	// }
+	//
+	// // columnIndex = cursor.getColumnIndex("second_level_region");
+	// // String second_level_region = "";
+	// // if (!cursor.isNull(columnIndex)
+	// // && cursor.getString(columnIndex).length() > 0) {
+	// // second_level_region = cursor.getString(columnIndex);
+	// // }
+	//
+	// columnIndex = cursor.getColumnIndex("district");
+	// String district = "";
+	// if (!cursor.isNull(columnIndex)
+	// && cursor.getString(columnIndex).length() > 0) {
+	// district = cursor.getString(columnIndex);
+	// }
+	//
+	// hospitals.add(new Hospital(id, station_name, station_name_bn,
+	// telephone_number, mobile_number, district, latitude,
+	// longitude, address));
+	// }
+	//
+	// }
+	// cursor.close();
+	// db.close();
+	// Log.d("tonmoy", "list size is : " + hospitals.size());
+	// return hospitals;
+	//
+	// }
 
 	// Methods for Map
 
@@ -964,7 +972,8 @@ public class Datasource extends SQLiteAssetHelper {
 	public ArrayList<StationInfoForMap> getAllPoliceStationsForMapByDistrict(
 			String id) {
 		ArrayList<StationInfoForMap> items = new ArrayList<StationInfoForMap>();
-		ArrayList<PoliceThana> allThana = get_police_stations_by_district(id);
+		ArrayList<PoliceThana> allThana = get_police_stations_by_district(id,
+				"");
 		for (PoliceThana policeThana : allThana) {
 			StationInfoForMap std = new StationInfoForMap(
 					policeThana.thana_name, policeThana.thana_name_bn,

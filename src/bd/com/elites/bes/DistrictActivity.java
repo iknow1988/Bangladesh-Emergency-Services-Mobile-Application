@@ -65,7 +65,7 @@ public class DistrictActivity extends BaseActivity implements OnClickListener {
 
 		asyncTask = new AsyncTaskHandler(DistrictActivity.this,
 				Constants.ASYNCTASK_ACTIONS.GET_POLICE_STATIONS_FOR_DISTRICT);
-		asyncTask.execute("" + id);
+		asyncTask.execute("" + id,"");
 
 	}
 

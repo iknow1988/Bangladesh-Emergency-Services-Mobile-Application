@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -416,19 +417,21 @@ public class PoliceActivity extends BaseActivity implements OnClickListener {
 	private void setDefaultListWithPresetDistrict() {
 		District present_district = UtilityFunctions
 				.getPresentDistrictFromSharedPreference(this);
+		PoliceThana presentPoliceThana = UtilityFunctions
+				.getPresentThanaFromSharedPreference(this);
 		if (present_district != null) {
 			asyncTask = new AsyncTaskHandler(
 					this,
 					Constants.ASYNCTASK_ACTIONS.GET_STATIONS_FROM_POLICE_BY_DISTRICT);
-			asyncTask.execute("" + present_district.id);
-		}
-		else {
+			asyncTask.execute("" + present_district.id,
+					presentPoliceThana.thana_name);
+		} else {
 			asyncTask = new AsyncTaskHandler(
 					this,
 					Constants.ASYNCTASK_ACTIONS.GET_STATIONS_FROM_POLICE_BY_DISTRICT);
-			asyncTask.execute("" + 14);
+			asyncTask.execute("" + 14, "");
 		}
-		
+
 	}
 
 	public void OnPreExecuteSetDafaultView() {
