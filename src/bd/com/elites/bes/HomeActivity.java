@@ -217,6 +217,7 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 				.getPresentThanaFromSharedPreference(HomeActivity.this);
 
 		if (present_thana != null) {
+			present_thana.decrypt();
 			present_thana_id = present_thana.id;
 			present_thana_name = present_thana.getName(language_preference);
 			police_quick_call_number = present_thana.getQuickContactNumber();

@@ -1,6 +1,7 @@
 package bd.com.elites.bes.map;
 
 import android.location.Location;
+import bd.com.elites.bes.utils.AES;
 import bd.com.elites.bes.utils.Constants;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -28,15 +29,21 @@ public class StationInfoForMap {
 			String second_level_region, String second_level_region_bn) {
 		this.Name = isNull(name) ? "" : name;
 		this.Name_bn = isNull(name_bn) ? "" : name_bn;
+		String latitude="-1.0",longitude="-1.0";
 		try {
-			Double lati = Double.parseDouble(lat);
-			Double lngi = Double.parseDouble(lng);
+			if(lat!=null)
+			{
+				latitude=AES.decryptIt(lat);
+				longitude=AES.decryptIt(lng);
+			}
+			Double lati = Double.parseDouble(latitude);
+			Double lngi = Double.parseDouble(longitude);
 			setLocation(name, lati, lngi);
 		} catch (Exception e) {
 			setLocation(name, -1.0, -1.0);
 		}
-		this.phoneNo1 = isNull(tnt) ? "" : tnt;
-		this.phoneNo2 = isNull(mobile) ? "" : mobile;
+		this.phoneNo1 = isNull(tnt) ? "" : AES.decryptIt(tnt);
+		this.phoneNo2 = isNull(mobile) ? "" : AES.decryptIt(mobile);
 		this.type = isNull(type) ? -1 : type;
 		this.district = isNull(district) ? "" : district;
 		this.district_bn = isNull(distric_bn) ? "" : distric_bn;
