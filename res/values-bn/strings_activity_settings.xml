@@ -2,6 +2,7 @@
 <resources>
 
     <string name="settings">সেটিংস</string>
+    <string name="app_version">সংস্করণ ০.১.২</string>
     <string name="where_do_you_live_at_present_">বর্তমানে আপনি কোথায় বাস করেন?</string>
     <string name="which_one_is_the_nearest_police_station_from_your_present_residence_">আপনার বাসা থেকে সবচেয়ে কাছের পুলিশ স্টেশন কোনটি?</string>
     <string name="select_police_station">পুলিশ স্টেশন নির্বাচন করুন</string>

@@ -30,12 +30,26 @@
             android:textSize="16sp"
             android:textStyle="bold" />
     </RelativeLayout>
+    <TextView
+        android:id="@+id/appVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actionBar"
+        android:layout_marginTop="10dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="@string/app_version"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/presentDistrictHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/actionBar"
+        android:layout_below="@id/appVersion"
         android:layout_marginTop="10dp"
         android:clickable="false"
         android:focusable="false"

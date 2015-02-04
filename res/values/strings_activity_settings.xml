@@ -2,6 +2,7 @@
 <resources>
 
     <string name="settings">Settings</string>
+    <string name="app_version">Version 0.1.2</string>
     <string name="where_do_you_live_at_present_">Where do you live at present?</string>
     <string name="which_one_is_the_nearest_police_station_from_your_present_residence_">Which one is the nearest police station from your present residence?</string>
     <string name="select_police_station">Select Police Station</string>
