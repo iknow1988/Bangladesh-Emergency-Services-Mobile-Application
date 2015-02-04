@@ -273,9 +273,12 @@ public class HospitalListAdapter extends ArrayAdapter<HospitalModel> implements
 										+ ","
 										+ hospitals.get(position).longitude
 										+ "?q="
-										+ URLEncoder.encode(
-												hospitals.get(position).station_name,
-												"UTF-8");
+										+ hospitals.get(position).latitude
+										+ ","
+										+ hospitals.get(position).longitude;
+								// + URLEncoder.encode(
+								// hospitals.get(position).station_name,
+								// "UTF-8");
 								context.startActivity(new Intent(
 										Intent.ACTION_VIEW, Uri
 												.parse(geoString)));

@@ -276,9 +276,12 @@ public class FireStationListAdapter extends ArrayAdapter<FireserviceStation>
 										+ ","
 										+ fireStations.get(position).longitude
 										+ "?q="
-										+ URLEncoder.encode(
-												fireStations.get(position).station_name,
-												"UTF-8");
+										+ fireStations.get(position).latitude
+										+ ","
+										+ fireStations.get(position).longitude;
+								// + URLEncoder.encode(
+								// fireStations.get(position).station_name,
+								// "UTF-8");
 								context.startActivity(new Intent(
 										Intent.ACTION_VIEW, Uri
 												.parse(geoString)));

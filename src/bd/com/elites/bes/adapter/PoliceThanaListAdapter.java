@@ -185,10 +185,13 @@ public class PoliceThanaListAdapter extends ArrayAdapter<PoliceThana> implements
 										+ ","
 										+ policeThanas.get(position).longitude
 										+ "?q="
-										+ URLEncoder.encode(
-												policeThanas.get(position).thana_name
-														+ " Police Station",
-												"UTF-8");
+										+ policeThanas.get(position).latitude
+										+ ","
+										+ policeThanas.get(position).longitude;
+								// + URLEncoder.encode(
+								// policeThanas.get(position).thana_name
+								// + " Police Station",
+								// "UTF-8");
 								context.startActivity(new Intent(
 										Intent.ACTION_VIEW, Uri
 												.parse(geoString)));
