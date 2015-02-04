@@ -84,13 +84,15 @@ public class PushNotificationService extends Service implements FetcherListener 
 				} catch (Exception e) {
 					// TODO: handle exception
 				} finally {
-					handler.postDelayed(this, 5000);
+//					handler.postDelayed(this, 5000);
+					handler.postDelayed(this, 60*1000);
 				}
 			}
 
 		};
 
-		handler.postDelayed(runable, 5000);
+//		handler.postDelayed(runable, 5000);
+		handler.postDelayed(runable, 60*1000);
 
 	}
 
