@@ -15,9 +15,10 @@ import bd.com.elites.bes.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
 import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,12 +32,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationPickerActivity extends FragmentActivity implements
-		LocationListener, ConnectionCallbacks, OnConnectionFailedListener,
-		OnClickListener, OnMarkerDragListener, OnMapLongClickListener {
+		LocationListener, GoogleApiClient.ConnectionCallbacks,
+		GoogleApiClient.OnConnectionFailedListener, OnClickListener,
+		OnMarkerDragListener, OnMapLongClickListener {
 
 	boolean isMarkerIsTouched = false;
 
-	private LocationClient mLocationClient;
+	// private LocationClient mLocationClient;
+	private GoogleApiClient mLocationClient;
 
 	private static final LocationRequest REQUEST = LocationRequest.create()
 			.setInterval(5000) // 5 seconds
@@ -85,8 +88,12 @@ public class LocationPickerActivity extends FragmentActivity implements
 
 	private void setUpLocationClientIfNeeded() {
 		if (mLocationClient == null) {
-			mLocationClient = new LocationClient(getApplicationContext(), this, // ConnectionCallbacks
-					this); // OnConnectionFailedListener
+			// mLocationClient = new LocationClient(getApplicationContext(),
+			// this, // ConnectionCallbacks
+			// this); // OnConnectionFailedListener
+			mLocationClient = new GoogleApiClient.Builder(this)
+					.addApi(LocationServices.API).addConnectionCallbacks(this)
+					.addOnConnectionFailedListener(this).build(); // OnConnectionFailedListener
 		}
 	}
 
@@ -139,12 +146,12 @@ public class LocationPickerActivity extends FragmentActivity implements
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		mLocationClient.requestLocationUpdates(REQUEST, this); // LocationListener
-	}
-
-	@Override
-	public void onDisconnected() {
-		// TODO Auto-generated method stub
+		myLocation = LocationServices.FusedLocationApi
+				.getLastLocation(mLocationClient);
+		// mLocationClient.requestLocationUpdates(REQUEST, this); //
+		// LocationListener
+		LocationServices.FusedLocationApi.requestLocationUpdates(
+				mLocationClient, REQUEST, this);
 	}
 
 	private void addMyLocationMarker(LatLng latlng) {
@@ -233,6 +240,12 @@ public class LocationPickerActivity extends FragmentActivity implements
 				.build();
 		mMap.animateCamera(CameraUpdateFactory
 				.newCameraPosition(cameraPosition));
+
+	}
+
+	@Override
+	public void onConnectionSuspended(int arg0) {
+		// TODO Auto-generated method stub
 
 	}
 }

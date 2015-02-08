@@ -30,9 +30,10 @@ import bd.com.elites.bes.utils.Globals;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
 import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -49,7 +50,8 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapViewActivity extends BaseActivity implements LocationListener,
-		ConnectionCallbacks, OnConnectionFailedListener, OnMarkerClickListener,
+		GoogleApiClient.ConnectionCallbacks,
+		GoogleApiClient.OnConnectionFailedListener, OnMarkerClickListener,
 		OnInfoWindowClickListener, MapAsyncListener, MapDirectionCallBack,
 		OnClickListener {
 
@@ -59,7 +61,8 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 	int pathColor[] = { R.color.police_path_color,
 			R.color.fire_service_path_color, R.color.hospital_path_color };
 
-	private LocationClient mLocationClient;
+	// private LocationClient mLocationClient;
+	private GoogleApiClient mLocationClient;
 	// These settings are the same as the settings for the map. They will in
 	// fact give you updates
 	// at the maximal rates currently possible.
@@ -158,8 +161,12 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 
 	private void setUpLocationClientIfNeeded() {
 		if (mLocationClient == null) {
-			mLocationClient = new LocationClient(getApplicationContext(), this, // ConnectionCallbacks
-					this); // OnConnectionFailedListener
+			// mLocationClient = new LocationClient(getApplicationContext(),
+			// this, // ConnectionCallbacks
+			// this); // OnConnectionFailedListener
+			mLocationClient = new GoogleApiClient.Builder(this)
+					.addApi(LocationServices.API).addConnectionCallbacks(this)
+					.addOnConnectionFailedListener(this).build();
 		}
 	}
 
@@ -222,13 +229,12 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		mLocationClient.requestLocationUpdates(REQUEST, this); // LocationListener
-	}
-
-	@Override
-	public void onDisconnected() {
-		// TODO Auto-generated method stub
-
+		myLocation = LocationServices.FusedLocationApi
+				.getLastLocation(mLocationClient);
+		// mLocationClient.requestLocationUpdates(REQUEST, this); //
+		// LocationListener
+		LocationServices.FusedLocationApi.requestLocationUpdates(
+				mLocationClient, REQUEST, this);
 	}
 
 	private void addMyLocationMarker(LatLng latlng, boolean showAnim) {
@@ -339,10 +345,12 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 				TextView district_info = (TextView) findViewById(R.id.district_info);
 				String str_district = getResources().getString(
 						R.string.click_to_see_all_stations_list_in_);
-				district_info.setText(str_district + district.getName(language_preference));
+				district_info.setText(str_district
+						+ district.getName(language_preference));
 				String around = getResources().getString(R.string.around_)
 						+ " ";
-				textViewTitle.setText(around + district.getName(language_preference));
+				textViewTitle.setText(around
+						+ district.getName(language_preference));
 				district_info.setVisibility(View.VISIBLE);
 				ShowProgress();
 				asyncmap = new AsyncTaskHandlerForMap(this,
@@ -581,6 +589,12 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 		Intent home = new Intent(MapViewActivity.this, HomeActivity.class);
 		startActivity(home);
 		MapViewActivity.this.finish();
+	}
+
+	@Override
+	public void onConnectionSuspended(int arg0) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
