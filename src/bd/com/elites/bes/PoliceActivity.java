@@ -74,8 +74,9 @@ public class PoliceActivity extends BaseActivity implements OnClickListener {
 		super.onStart();
 
 		dialog = new TransparentProgressDialog(PoliceActivity.this);
-		setDefaultListWithPresetDistrict();
-
+		if (selectedUnitId == -1) {
+			setDefaultListWithPresetDistrict();
+		}
 		findViewById(R.id.actionBar).setOnClickListener(this);
 
 		unit_selector = (LinearLayout) findViewById(R.id.unit_selector);

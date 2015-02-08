@@ -60,14 +60,15 @@ public class FireServiceActivity extends BaseActivity implements
 		super.onStart();
 
 		dialog = new TransparentProgressDialog(FireServiceActivity.this);
-
-		if (!(Globals.DIVISION_LIST.size() > 0)) {
-			AsyncTaskHandler asyncTask = new AsyncTaskHandler(
-					FireServiceActivity.this,
-					Constants.ASYNCTASK_ACTIONS.GET_DISTRICT_LIST_FROM_FIRESERVICE);
-			asyncTask.execute();
-		} else {
-			setDefaultListWithPresetDistrict();
+		if (selectedDistrictId == -1) {
+			if (!(Globals.DIVISION_LIST.size() > 0)) {
+				AsyncTaskHandler asyncTask = new AsyncTaskHandler(
+						FireServiceActivity.this,
+						Constants.ASYNCTASK_ACTIONS.GET_DISTRICT_LIST_FROM_FIRESERVICE);
+				asyncTask.execute();
+			} else {
+				setDefaultListWithPresetDistrict();
+			}
 		}
 
 		findViewById(R.id.actionBar).setOnClickListener(this);
@@ -151,8 +152,8 @@ public class FireServiceActivity extends BaseActivity implements
 				fire_stations_list.setVisibility(View.GONE);
 				District district = Globals.DIVISION_LIST.get(groupPosition).districts
 						.get(childPosition);
-				((TextView) findViewById(R.id.district_name_textview))
-						.setText(district.getName(UtilityFunctions.getLanguageFromSharedPreference(FireServiceActivity.this)));
+				((TextView) findViewById(R.id.district_name_textview)).setText(district.getName(UtilityFunctions
+						.getLanguageFromSharedPreference(FireServiceActivity.this)));
 
 				if (FireServiceActivity.this.selectedDistrictId != district.id) {
 					hideDistrictList();

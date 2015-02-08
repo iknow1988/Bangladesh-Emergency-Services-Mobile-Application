@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import bd.com.elites.bes.map.LocationPickerActivity;
 import bd.com.elites.bes.utils.AsyncTaskHandler;
 import bd.com.elites.bes.utils.BaseActivity;
@@ -125,8 +126,10 @@ public class ContributionActivity extends BaseActivity implements
 			break;
 
 		case R.id.submit:
-
-			processSubmit();
+			Toast.makeText(ContributionActivity.this,
+					"This feature will be enable soon", Toast.LENGTH_LONG)
+					.show();
+			// processSubmit();
 
 			break;
 

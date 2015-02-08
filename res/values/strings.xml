@@ -29,8 +29,8 @@
     <string name="title_activity_map">MapActivity</string>
      <string name="title_activity_exit">ExitActivity</string>
     
-    <string name="google_map_key_debug">"AIzaSyBxdbncxlfKTRtDKzy6F2r3_6h9R7p-9O0"</string>
-    <string name="google_map_key_release">""</string>
+    <!-- <string name="google_map_key_debug">"AIzaSyBxdbncxlfKTRtDKzy6F2r3_6h9R7p-9O0"</string> -->
+    <string name="google_map_key_release">"AIzaSyCDUnaeE-FBXQTypuzS2Aq_0htcWn0HM0g"</string>
 
     <!-- Contribution Activity -->
     <string name="whom_to_contribute_alert">Please select an option to whom you want to contribute.</string>

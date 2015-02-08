@@ -80,7 +80,7 @@ public class HospitalActivity extends BaseActivity implements OnClickListener {
 		super.onStart();
 
 		dialog = new TransparentProgressDialog(HospitalActivity.this);
-
+		if (selectedDistrictId == -1) {
 		if (!(Globals.DIVISION_LIST.size() > 0)) {
 			AsyncTaskHandler asyncTask = new AsyncTaskHandler(
 					HospitalActivity.this,
@@ -88,6 +88,7 @@ public class HospitalActivity extends BaseActivity implements OnClickListener {
 			asyncTask.execute();
 		} else {
 			setDefaultListWithPresetDistrict();
+		}
 		}
 
 		findViewById(R.id.actionBar).setOnClickListener(this);

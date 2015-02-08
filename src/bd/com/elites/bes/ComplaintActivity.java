@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import bd.com.elites.bes.utils.AsyncTaskHandler;
 import bd.com.elites.bes.utils.BaseActivity;
 import bd.com.elites.bes.utils.Constants;
@@ -95,7 +96,10 @@ public class ComplaintActivity extends BaseActivity implements OnClickListener {
 
 		switch (i) {
 		case R.id.submit:
-			processSubmit();
+			Toast.makeText(ComplaintActivity.this,
+					"This feature will be enable soon", Toast.LENGTH_LONG)
+					.show();
+//			processSubmit();
 			break;
 
 		default:
