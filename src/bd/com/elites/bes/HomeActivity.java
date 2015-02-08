@@ -231,7 +231,10 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 		if (isShowingDistrictList) {
 			hideDistrictList();
 		} else {
+			// Back to Exit Screen
+			Intent exitIntent = new Intent(HomeActivity.this, ExitActivity.class);
 			HomeActivity.this.finish();
+			startActivity(exitIntent);
 		}
 	}
 
@@ -400,6 +403,18 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 						Intent fb_mis = UtilityFunctions.getFacebookPageIntent(
 								HomeActivity.this, "189823517785353",
 								"mis.dghs");
+						startActivity(fb_mis);
+					}
+				});
+		fb_links.findViewById(R.id.fb_a2i).setOnClickListener(
+				new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						detailsDialog.dismiss();
+						Intent fb_mis = UtilityFunctions.getFacebookPageIntent(
+								HomeActivity.this, "362213890520498",
+								"a2iBangladesh");
 						startActivity(fb_mis);
 					}
 				});

@@ -24,6 +24,7 @@ public class Datasource extends SQLiteAssetHelper {
 	public Datasource(Context context) {
 		super(context, Constants.DB_INFO.DATABASE_NAME, null,
 				Constants.DB_INFO.DATABASE_VERSION);
+		setForcedUpgrade(Constants.DB_INFO.DATABASE_VERSION);
 	}
 
 	public ArrayList<District> get_districts() {

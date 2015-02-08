@@ -27,6 +27,8 @@
     <string name="title_activity_district">DistrictActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_map">MapActivity</string>
+     <string name="title_activity_exit">ExitActivity</string>
+    
     <string name="google_map_key_debug">"AIzaSyBxdbncxlfKTRtDKzy6F2r3_6h9R7p-9O0"</string>
     <string name="google_map_key_release">""</string>
 
