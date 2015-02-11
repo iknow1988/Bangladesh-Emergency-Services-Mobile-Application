@@ -104,8 +104,8 @@ public class DistrictActivity extends BaseActivity implements OnClickListener {
 		
 		asyncTask = new AsyncTaskHandler(DistrictActivity.this,
 				Constants.ASYNCTASK_ACTIONS.GET_HOSPITALS_FOR_DISTRICT);
-		//asyncTask.execute("" + id);
-		asyncTask.execute("" + 14);
+		asyncTask.execute("" + id);
+//		asyncTask.execute("" + 14);
 	}
 	
 	public void onPreExecuteGetHospitals() {

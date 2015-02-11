@@ -55,6 +55,32 @@
 # Don't warn about those in case this app is linking against an older
 # platform version.  We know about them, and they are safe.
 -dontwarn android.support.**
--libraryjars /jars/com.sun.mail_1.4.2.jar
--libraryjars /libs/sqliteassethelper-2.0.1.jar
--libraryjars /libs/gson-2.3.jar
+
+-keep class com.sun.** { *; }
+-keep class com.readystatesoftware.** {*;}
+-dontwarn com.sun.**
+-dontwarn com.readystatesoftware.**
+
+-dontwarn java.awt.**
+-dontwarn java.beans.Beans
+-dontwarn javax.security.**
+-dontwarn javax.mail.**
+
+-keep class javamail.** {*;}
+-keep class javax.mail.** {*;}
+-keep class javax.activation.** {*;}
+
+-keep class com.sun.mail.dsn.** {*;}
+-keep class com.sun.mail.handlers.** {*;}
+-keep class com.sun.mail.smtp.** {*;}
+-keep class com.sun.mail.util.** {*;}
+-keep class mailcap.** {*;}
+-keep class mimetypes.** {*;}
+-keep class myjava.awt.datatransfer.** {*;}
+-keep class org.apache.harmony.awt.** {*;}
+-keep class org.apache.harmony.misc.** {*;}
+
+
+-libraryjars jars/com.sun.mail_1.4.2.jar
+-libraryjars libs/sqliteassethelper-2.0.1.jar
+-libraryjars libs/gson-2.3.jar

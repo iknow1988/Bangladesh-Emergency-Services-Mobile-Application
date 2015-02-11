@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
-    tools:context=".SplashActivity" >
+    android:background="@drawable/background"
+    android:paddingLeft="7dp"
+    tools:context=".ExitActivity" >
 
     <LinearLayout
         android:id="@+id/welcomeMessage"
@@ -14,8 +15,8 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="86dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="Logo"
             android:src="@drawable/ic_launcher" />
@@ -24,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:text="@string/app_name"
+            android:text="@string/bangladesh_emergency_services"
             android:textColor="@color/dark_green"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -64,14 +65,14 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
-                android:background="@drawable/green_bg"
+                android:background="@drawable/exit_screen_button_background"
                 android:duplicateParentState="true"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Like Us"
-                android:textColor="@android:color/white"
+                android:text="@string/like_us"
+                android:textColor="@color/dark_green"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,14 +89,14 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
-                android:background="@drawable/green_bg"
+                android:background="@drawable/exit_screen_button_background"
                 android:duplicateParentState="true"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Rate This"
-                android:textColor="@android:color/white"
+                android:text="@string/rate_this"
+                android:textColor="@color/dark_green"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
     </LinearLayout>
 
@@ -125,14 +126,15 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
-                android:background="@drawable/green_bg"
+                android:background="@drawable/exit_screen_button_background"
                 android:duplicateParentState="true"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Tell Others"
-                android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:text="@string/tell_others"
+                android:textColor="@color/dark_green"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,30 +151,28 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
-                android:background="@drawable/green_bg"
+                android:background="@drawable/exit_screen_button_background"
                 android:duplicateParentState="true"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Feedback"
-                android:textColor="@android:color/white"
+                android:text="@string/feedback"
+                android:textColor="@color/dark_green"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
         </LinearLayout>
     </LinearLayout>
-
-    
 
     <TextView
         android:id="@+id/exitQUestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/exitIconSet1"
         android:layout_marginRight="10dp"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="Was this app Helpful?"
+        android:text="@string/was_helpful"
         android:textColor="@color/dark_green"
-        android:textSize="20sp"
-        android:layout_above="@id/exitIconSet1" />
+        android:textSize="18sp" />
 
     <LinearLayout
         android:id="@+id/poweredBy"
@@ -193,20 +193,9 @@
             android:layout_height="wrap_content"
             android:gravity="center" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:gravity="left"
-                android:text="POWERED BY"
-                android:textColor="@color/dark_green"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="83dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="Logo"
                 android:src="@drawable/ic_elites_logo" />
@@ -216,12 +205,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="click to know about eLITEs"
-            android:textColor="@color/dark_green"
-            android:textSize="12sp"
-            android:background="@drawable/action_item_btn" />
+            android:text="@string/developed_by_elites"
+            android:textColor="@drawable/dark_green_text_color"
+            android:textSize="12sp" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/exitButtons"
         android:layout_width="match_parent"
@@ -245,8 +233,8 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="10dp"
-            android:text="BACK"
-            android:textColor="@android:color/white"
+            android:text="@string/back_to_app"
+            android:textColor="@color/dark_green"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -260,8 +248,8 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="10dp"
-            android:text="EXIT"
-            android:textColor="@android:color/white"
+            android:text="@string/exit_from_app"
+            android:textColor="@color/dark_green"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>

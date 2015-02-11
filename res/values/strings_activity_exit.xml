@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="was_helpful">Was this app helpful?</string>
+
+    <string name="like_us">Like Us</string>
+
+    <string name="rate_this">Rate This</string>
+
+    <string name="tell_others">Tell Others</string>
+
+    <string name="feedback">Feedback</string>
+
+    <string name="back_to_app">BACK</string>
+
+    <string name="exit_from_app">EXIT</string>
+
+    <string name="developed_by_elites">developed by eLITEs: click to know more</string>
+
+</resources>

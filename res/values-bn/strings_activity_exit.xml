@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="was_helpful">অ্যাপটি কি সহায়ক মনে হয়েছে?</string>
+
+    <string name="like_us">পছন্দ করুন</string>
+
+    <string name="rate_this">রেটিং দিন</string>
+
+    <string name="tell_others">অন্যকে বলুন</string>
+
+    <string name="feedback">মতামত দিন</string>
+
+    <string name="back_to_app">ফিরে চলুন</string>
+
+    <string name="exit_from_app">বাহির হোন</string>
+
+    <string name="developed_by_elites">প্রস্তুতকারক ইলাইটস: বিস্তারিত জানতে ক্লিক করুন</string>
+
+</resources>

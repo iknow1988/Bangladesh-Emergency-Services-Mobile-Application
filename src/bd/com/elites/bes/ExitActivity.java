@@ -18,6 +18,8 @@ public class ExitActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.slide_in_from_left,
+				R.anim.fade_out_fast);
 		setContentView(R.layout.activity_exit);
 	}
 

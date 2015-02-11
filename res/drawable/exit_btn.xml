@@ -3,14 +3,12 @@
     android:dither="true" >
 
     <item
-        android:drawable="@color/dark_silver"
-        android:state_window_focused="false"/>
-    <item
-        android:drawable="@color/light_silver"
+        android:drawable="@color/darker_green"
         android:state_pressed="true"/>
     <item
-        android:drawable="@color/light_silver"
+        android:drawable="@color/darker_green"
         android:state_focused="true"/>
-    <item android:drawable="@color/dark_silver"/>
+    
+    <item android:drawable="@color/light_green"/>
 
 </selector>
