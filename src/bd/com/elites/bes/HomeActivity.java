@@ -153,8 +153,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 										.getString(
 												R.string.internet_connection_required));
 							} else if (!(lm
-									.isProviderEnabled(LocationManager.GPS_PROVIDER)
-									|| lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER))) {
+									.isProviderEnabled(LocationManager.GPS_PROVIDER) || lm
+									.isProviderEnabled(LocationManager.NETWORK_PROVIDER))) {
 								// Build the alert dialog
 								AlertDialog.Builder builder = new AlertDialog.Builder(
 										HomeActivity.this);
@@ -176,6 +176,11 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 								Dialog alertDialog = builder.create();
 								alertDialog.setCanceledOnTouchOutside(false);
 								alertDialog.show();
+							} else if (!UtilityFunctions
+									.checkPlayServices(HomeActivity.this)) {
+								showSimpleDialogWithMessage(getResources()
+										.getString(
+												R.string.google_play_required));
 							} else {
 								Intent map_activity = new Intent(
 										HomeActivity.this,
@@ -232,7 +237,8 @@ public class HomeActivity extends BaseActivity implements OnClickListener {
 			hideDistrictList();
 		} else {
 			// Back to Exit Screen
-			Intent exitIntent = new Intent(HomeActivity.this, ExitActivity.class);
+			Intent exitIntent = new Intent(HomeActivity.this,
+					ExitActivity.class);
 			HomeActivity.this.finish();
 			startActivity(exitIntent);
 		}

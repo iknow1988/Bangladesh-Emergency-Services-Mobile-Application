@@ -21,7 +21,7 @@
     <string name="address_for_details_view">ঠিকানা : </string>
     <string name="hospital_address_dummy_text">ঠিকানা: বাসা ৫, রোড ৭</string>
     <string name="internet_connection_required">ইন্টারনেট সংযোগ প্রয়োজন।\nআপনার মোবাইলের ইন্টারনেট সংযোগ চালু করে আবার চেষ্টা করুন।</string>
-
+    <string name="google_play_required">আপনার মোবাইল এই সেবাটি সমর্থন করে না। প্রস্তুতকারকের সাথে যোগাযোগ করুন।</string>
     <!-- Contribution Activity -->
     <string name="whom_to_contribute_alert">কোন ক্ষেত্রে অবদান রাখতে চান, তা নির্বাচন করুন।</string>
     <string name="please_select_type">কী ধরণের অবদান রাখতে চান, তা নির্বাচন করুন।</string>
@@ -30,7 +30,7 @@
     <string name="congratulation_for_contribution">আপনার অবদান প্রেরণ করা হয়েছে। একটি সুন্দর বাংলাদেশ গড়তে অবদান রাখার জন্যে আপনাকে ধন্যবাদ। </string>
     <string name="internet_connection_is_required">ইন্টারনেট সংযোগ প্রয়োজন।\nআপনার মোবাইলের ইন্টারনেট সংযোগ চালু করে আবার চেষ্টা করুন।</string>
     <string name="click_to_chage_the_selected_location">নির্বাচিত অবস্থান পরিবর্তন করতে ক্লিক করুন।</string>
-   
+
     <!-- complain Activity -->
     <string name="please_write_your_complain_">আপনার অভিযোগ লিখুন।</string>
     <string name="your_complain_has_been_submitted_">আপনার অভিযোগ প্রেরণ করা হয়েছে।</string>

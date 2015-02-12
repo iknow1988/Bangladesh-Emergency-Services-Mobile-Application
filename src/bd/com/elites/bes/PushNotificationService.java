@@ -22,7 +22,7 @@ import bd.com.elites.bes.utils.FetcherListener;
 import bd.com.elites.bes.utils.UtilityFunctions;
 
 public class PushNotificationService extends Service implements FetcherListener {
-	private static final int DELAY_MILLIS = 1000 * 60 * 5;// 5 min
+	private static final int DELAY_MILLIS = 1000 * 60 * 10;// 10 min
 	private static final String MESSAGE_POLICE = "message_police";
 	private static final String MESSAGE_FIRE_SERVICE = "message_fire_service";
 	Handler handler;

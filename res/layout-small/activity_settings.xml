@@ -23,11 +23,11 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:focusable="false"
-            android:padding="10dp"
+            android:padding="5dp"
             android:singleLine="true"
             android:text="@string/settings"
             android:textColor="@color/light_green"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </RelativeLayout>
     <TextView
@@ -35,14 +35,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/actionBar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:clickable="false"
         android:focusable="false"
         android:padding="5dp"
         android:singleLine="true"
         android:text="@string/app_version"
         android:textColor="@color/dark_green"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="normal" />
 
     <TextView
@@ -57,7 +57,7 @@
         android:singleLine="true"
         android:text="@string/where_do_you_live_at_present_"
         android:textColor="@color/dark_green"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="normal" />
 
     <LinearLayout
@@ -102,11 +102,11 @@
                 android:clickable="false"
                 android:duplicateParentState="true"
                 android:focusable="false"
-                android:paddingLeft="10dp"
+                android:paddingLeft="5dp"
                 android:singleLine="true"
                 android:text="@string/select_district"
                 android:textColor="@drawable/light_green_text_color"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -115,13 +115,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/district_selector"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:clickable="false"
         android:focusable="false"
         android:padding="5dp"
         android:text="@string/which_one_is_the_nearest_police_station_from_your_present_residence_"
         android:textColor="@color/dark_green"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="normal" />
 
     <LinearLayout
@@ -166,11 +166,11 @@
                 android:clickable="false"
                 android:duplicateParentState="true"
                 android:focusable="false"
-                android:paddingLeft="10dp"
+                android:paddingLeft="5dp"
                 android:singleLine="true"
                 android:text="@string/select_police_station"
                 android:textColor="@drawable/light_green_text_color"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -193,13 +193,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/presentThanaInfoText"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:clickable="false"
         android:focusable="false"
         android:padding="5dp"
         android:text="@string/select_your_preferred_language_"
         android:textColor="@color/dark_green"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="normal" />
 
     <RadioGroup
@@ -229,57 +229,6 @@
             android:textColor="@color/dark_green"
             android:visibility="visible" />
 
-        <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical" >
-
-            
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="0dp"
-                android:layout_marginLeft="3dp"
-                android:padding="0dp"
-                android:src="@drawable/ic_a2i" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="English"
-                android:textColor="@color/dark_green"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical" >
-
-            
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="0dp"
-                android:layout_marginLeft="3dp"
-                android:padding="0dp"
-                android:src="@drawable/ic_a2i" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Bangla"
-                android:textColor="@color/dark_green"
-                android:textSize="16dp" />
-        </LinearLayout>
-        -->
     </RadioGroup>
 
     <Button

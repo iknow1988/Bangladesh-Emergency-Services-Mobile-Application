@@ -61,6 +61,7 @@
     <string name="submit_contribution_url">http://bes.elitesbd.com/index.php/mobile_service/submit_contribution</string>
     <string name="hospital_address_dummy_text">Address: House 5, Road 7</string>
     <string name="internet_connection_required">INTERNET CONNECTION is required.\nPlease turn on internet connection of your device and try again.</string>
+    <string name="google_play_required">Google play services is not supported by your device. \nPlease contact the manufacturer.</string>
 
     <!-- complain Activity -->
     <string name="please_write_your_complain_">Please write your complain.</string>
