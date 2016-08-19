@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
@@ -329,10 +330,13 @@ public class MapViewActivity extends BaseActivity implements LocationListener,
 				String around = getResources().getString(R.string.around_)
 						+ " ";
 				textViewTitle.setText(around + (String) result);
+				String data = (String) result;
+				data = data.toLowerCase().replace("district", "");
+				Log.d("tonmoy", data);
 				ShowProgress();
 				getDistrictFromDatabase = new AsyncTaskHandlerForMap(this,
 						AsyncTaskHandlerForMap.GET_DISTRICT_FROM_DB, this);
-				getDistrictFromDatabase.execute((String) result);
+				getDistrictFromDatabase.execute(data.trim());
 			}
 
 			break;
